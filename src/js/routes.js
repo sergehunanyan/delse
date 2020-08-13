@@ -1,10 +1,23 @@
+/* Auth */
+import Login from '../pages/auth/login.svelte'
+import Forgot from '../pages/auth/forgot.svelte';
+import Register from '../pages/auth/register.svelte';
+import RegisterSecond from '../pages/auth/registerSecond.svelte';
 
-import Login from '../pages/login.svelte'
-import Forgot from '../pages/forgot.svelte';
-import Register from '../pages/register.svelte';
-import RegisterSecond from '../pages/registerSecond.svelte';
+/* User */
+import User from '../pages/user/index.svelte';
+import Notifications from '../pages/user/notifications.svelte';
 
-var routes = [
+/* Ride */
+import Ride from '../pages/ride/index.svelte';
+
+/* Bid */
+import Bid from '../pages/bid/index.svelte';
+
+/* Package */
+import Package from '../pages/package/index.svelte';
+
+let routes = [
   {
     path: '/',
     component: Login,
@@ -20,6 +33,30 @@ var routes = [
   {
     path: '/forgot/',
     component: Forgot,
+  },
+  {
+    path: '/user/',
+    component: User,
+  },
+
+  {
+    path: '/ride/',
+    component: Ride,
+  },
+
+  {
+    path: '/bid/',
+    component: Bid,
+  },
+
+  {
+    path: '/package/',
+    component: Package,
+  },
+
+  {
+    path: '/notifications/',
+    component: Notifications,
   },
 ];
 
