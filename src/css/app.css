@@ -1,0 +1,252 @@
+/* Your app custom styles here */
+.page{
+    background-color: #fff;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-Regular.eot');
+    src: local('Acrom Regular'), local('Acrom-Regular'),
+    url('../fonts/Acrom-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-Regular.woff') format('woff'),
+    url('../fonts/Acrom-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-Bold.eot');
+    src: local('Acrom Bold'), local('Acrom-Bold'),
+    url('../fonts/Acrom-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-Bold.woff') format('woff'),
+    url('../fonts/Acrom-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-Thin.eot');
+    src: local('Acrom Thin'), local('Acrom-Thin'),
+    url('../fonts/Acrom-Thin.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-Thin.woff') format('woff'),
+    url('../fonts/Acrom-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-Light.eot');
+    src: local('Acrom Light'), local('Acrom-Light'),
+    url('../fonts/Acrom-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-Light.woff') format('woff'),
+    url('../fonts/Acrom-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-ExtraBold.eot');
+    src: local('Acrom ExtraBold'), local('Acrom-ExtraBold'),
+    url('../fonts/Acrom-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-ExtraBold.woff') format('woff'),
+    url('../fonts/Acrom-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acrom';
+    src: url('../fonts/Acrom-Medium.eot');
+    src: local('Acrom Medium'), local('Acrom-Medium'),
+    url('../fonts/Acrom-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Acrom-Medium.woff') format('woff'),
+    url('../fonts/Acrom-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    font-family: Acrom, 'sans-serif';
+}
+input[type=text], input[type=email], input[type=password]{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #e6e3df;
+    background-color: #ffffff;
+    background-size: cover;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    transition: all .4s
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus{
+    border-bottom: 1px solid #ffba2b;
+    text-align:center;
+}
+input::placeholder{
+    color: #000000;
+}
+
+/* login */
+.login_page .page-content{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 0 17px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+}
+.logo img {
+    width: 182px;
+}
+.login_form .input{
+    margin-bottom: 12px;
+}
+.login_form .input:first-child{
+    margin-bottom: 40px;
+}
+.login_button_block{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.login_button{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ffba2b;
+    background-size: cover;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.to_forgot{
+    display:block;
+    text-align:right;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+}
+.to_register{
+    display:block;
+    text-align:center;
+    width: 281px;
+    height: 19px;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+/* Forgot */
+.forgot_page .page-content{
+    padding: 0 17px;
+}
+.forgot_page .logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+}
+.forgot_buttons{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ffba2b;
+    background-size: cover;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.back_to_login{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin-bottom: 85px;
+}
+.back_to_login img{
+    width: 16px;
+    height: 16px;
+    stroke-width: 1;
+    transform: rotate(-90deg);
+}
+
+/* Register */
+.register_page .page-content{
+    padding: 0 17px;
+}
+.register_1_form{
+    margin-top: 150px;
+}
+.register_buttons{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #000000;
+    background-size: cover;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.back_to_register{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    margin: 39px 0 33px;
+}
+.back_to_register img{
+    width: 16px;
+    height: 16px;
+    stroke-width: 1;
+    transform: rotate(-90deg);
+}
+.register_page label{
+    display: flex;
+    align-items:center;
+    font-size: 14px;
+    color: #121212;
+    text-decoration: none solid rgb(18, 18, 18);
+    margin-top: 20px;
+}
+.register_page label input{
+    width: 16px;
+}
+
+@media all and (min-height: 650px) {
+    .register_form > .input{
+        margin-bottom: 20px;
+    }
+    .register_form > .input:first-child{
+        margin-bottom: 40px;
+    }
+}
