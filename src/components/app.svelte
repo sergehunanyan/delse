@@ -18,8 +18,8 @@
 
   // Framework7 Parameters
   let f7params = {
-    name: 'Delse', // App name
-    theme: 'auto', // Automatic theme detection
+    name: 'Delse',
+    theme: 'ios',
 
 
 
@@ -30,7 +30,6 @@
   onMount(() => {
     f7ready(() => {
 
-      // Call F7 APIs here
     });
   })
 </script>

@@ -5,7 +5,7 @@
     </Link>
 
     <form class="login_form">
-        <Input type="text" placeholder="Номер телефона" on:focus={addPlus} {value}/>
+        <Input type="email" placeholder="Email"/>
 
         <Input type="password" placeholder="Пароль"/>
 
@@ -30,11 +30,4 @@
         Block,
         Input,
     } from 'framework7-svelte';
-
-    let value = '';
-    function addPlus() {
-        if(value === ''){
-            value = '+';
-        }
-    }
 </script>

@@ -6,6 +6,13 @@ import RegisterSecond from '../pages/auth/registerSecond.svelte';
 
 /* User */
 import User from '../pages/user/index.svelte';
+import PaymentSystems from '../pages/user/paymentSystems.svelte';
+import Settings from '../pages/user/settings.svelte';
+import Password from '../pages/user/password.svelte';
+import Rating from '../pages/user/rating.svelte';
+import Invite from '../pages/user/invite.svelte';
+import Support from '../pages/user/support.svelte';
+import Socials from '../pages/user/socials.svelte';
 import Notifications from '../pages/user/notifications.svelte';
 
 /* Ride */
@@ -18,9 +25,11 @@ import Bid from '../pages/bid/index.svelte';
 import Package from '../pages/package/index.svelte';
 
 let routes = [
+
+  /* Auth */
   {
     path: '/',
-    component: Login,
+    component: Invite,
   },
   {
     path: '/register/',
@@ -34,16 +43,47 @@ let routes = [
     path: '/forgot/',
     component: Forgot,
   },
+
+  /* User profile */
   {
     path: '/user/',
     component: User,
   },
+  {
+    path: '/payment-systems/',
+    component: PaymentSystems,
+  },
+  {
+    path: '/settings/',
+    component: Settings,
+  },
+  {
+    path: '/password/',
+    component: Password,
+  },
+  {
+    path: '/rating/',
+    component: Rating,
+  },
+  {
+    path: '/invite/',
+    component: Invite,
+  },
+  {
+    path: '/support/',
+    component: Support,
+  },
+  {
+    path: '/socials/',
+    component: Socials,
+  },
 
+  /* Rides */
   {
     path: '/ride/',
     component: Ride,
   },
-
+  /* Bids */
   {
     path: '/bid/',
     component: Bid,

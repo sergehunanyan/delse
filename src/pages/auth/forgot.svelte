@@ -9,11 +9,7 @@
     </Link>
 
     <form class="login_form">
-        <Input type="text" placeholder="Номер телефона"/>
-
-        <Block class="login_button_block">
-            <Button class="forgot_buttons" round>Отправить SMS</Button>
-        </Block>
+        <Input type="email" placeholder="Email"/>
 
         <Block class="login_button_block">
             <Button class="forgot_buttons" round>Отправить E-mail</Button>

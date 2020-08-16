@@ -9,7 +9,7 @@
     </Link>
 
     <form class="register_form">
-        <Input type="text" placeholder="Номер телефона"/>
+        <Input type="email" placeholder="Email"/>
 
         <Input type="password" placeholder="Пароль"/>
 
