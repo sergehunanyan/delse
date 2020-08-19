@@ -95,7 +95,9 @@ input::placeholder{
 .simple-list li:after, .links-list a:after, .list .item-inner:after, .list ul:before, .list ul:after{
     content:none;
 }
-
+.m-0{
+    margin: 0;
+}
 .popup{
     transform: translate3d(0, -100vh, 0);
 }
@@ -398,6 +400,30 @@ input::placeholder{
     color: #000000;
 }
 
+/* User rating page */
+.user_rating_block h5{
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+.user_rating_block h5 span{
+    font-size: 14px;
+    color: #ffba2b;
+    text-align: center;
+    margin: 0 5px 0 15px;
+}
+.watch_ratings{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.watch_ratings a{
+    font-size: 14px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    text-align: center;
+}
+
 /* Main Navigation */
 .main_navigation{
     padding: 0 22px;
@@ -572,8 +598,7 @@ input::placeholder{
 }
 .socials_block p{
     text-align:center;
-    white-space: pre-line;
-}
+    white-space: pre-line;}
 .socials_list{
     margin: 0;
 }
@@ -615,4 +640,350 @@ input::placeholder{
     justify-content: center;
     text-transform: inherit;
     font-weight: 400;
+}
+
+/* Rides */
+.rides_header{
+    margin: 24px 0;
+}
+.rides_page .toolbar.ride_tabs {
+    position: relative;
+    background-color: transparent;
+    backdrop-filter: none;
+}
+.ride_tabs .toolbar-inner{
+    justify-content:center;
+}
+.ride_tabs .toolbar-inner .tab-link{
+    max-width: 127px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #333333;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-align: center;
+}
+.ride_tabs .toolbar-inner .tab-link:first-child{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.ride_tabs .toolbar-inner .tab-link:last-child{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.ride_tabs .toolbar-inner .tab-link.tab-link-active{
+    background-color: #333333;
+    color: #ffba2b;
+}
+.add_ride{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 99999999;
+}
+.add_ride span{
+    width: 16px;
+    height: 1px;
+    background-color: #000000;
+}
+.add_ride span:last-child{
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    height: 16px;
+    width: 1px;
+    margin: 0;
+}
+.my_rides{
+    margin: 0 0 70px;
+}
+.my_rides li .item-content, .my_rides li .item-inner{
+    margin: 0;
+    padding: 0;
+}
+.my_rides li:not(:last-child){
+    margin-bottom: 20px;
+}
+.my_rides li .ride_block{
+    max-width: 380px;
+    border-radius: 20px;
+    background-color: #4d4d4d;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.7);
+    margin: 0 auto;
+    padding: 10px;
+}
+.ride_from_to p{
+    font-size: 14px;
+    color: #f5f5f5;
+    text-decoration: none solid rgb(245, 245, 245);
+}
+.my_rides li .item-inner{
+    flex-direction:column;
+    align-items: flex-start;
+}
+.ride_dates > div{
+    flex-basis: 45%;
+}
+.ride_dates > div p:first-child{
+    font-size: 12px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    text-align: center;
+    font-weight: 500;
+    margin: 0;
+}
+.ride_dates > div p:last-child{
+    border-bottom: 1px solid #000000;
+    font-size: 12px;
+    color: #f5f5f5;
+    text-decoration: none solid rgb(245, 245, 245);
+    text-align: center;
+    padding: 0;
+    line-height: 30px;
+    margin: 0;
+}
+.ride_dates {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+.ride_dates:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 1px;
+    height: 34px;
+    background-color: #ffba2b;
+}
+.my_rides .info p{
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+.my_rides .info p span{
+    font-size: 10px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+}
+.my_rides .bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.my_rides .bottom p {
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+}
+.my_rides .bottom p span {
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+.my_rides .bottom .button {
+    max-width: 180px;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #000000;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    display: flex;
+    font-weight: 400;
+    text-transform: inherit;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.ride_img_params{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.ride_img_params p{
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+}
+.ride_img_params p:last-child{
+    margin-left: 20px;
+}
+.ride_img_params p span{
+    margin-right: 5px;
+}
+.ride_img_params p img{
+    margin-right: 10px;
+}
+
+@media all and (max-width: 360px) {
+    .ride_tabs .toolbar-inner .tab-link{
+        font-size: 12px;
+        max-width: 110px;
+    }
+    .my_rides .ride_dates > div p:first-child, .my_rides .ride_dates > div p:last-child{
+        font-size: 10px;
+    }
+    .my_rides .info p{
+        font-size: 10px;
+    }
+    .my_rides .bottom .button {
+        max-width: 140px;
+        font-size: 10px;
+    }
+    .ride_from_to p{
+        font-size: 12px;
+    }
+}
+
+/* Ride requests */
+.ride_extra_info {
+    min-height: 52px;
+    padding: 4px;
+    border: 1px solid #000000;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+.ride_request_rating {
+    margin: 0;
+    padding: 0;
+}
+.ride_request_rating .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ride_request_rating span {
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+.ride_request_rating .rate{
+    padding: 0 8px;
+    font-size: 14px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+}
+.ride_request_rating .status{
+    font-family: Lobster;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+.rides_header .back_to_user{
+    top: 50%;
+    left: 17px;
+    transform: translateY(-50%);
+    z-index: 9999;
+}
+.request_bottom {
+    max-width: 400px;
+    padding: 0 10px;
+    width: 100%;
+    height: 40px;
+    margin: 4px auto 0;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background: #333333;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.7);
+}
+.request_bottom p span{
+    font-size: 14px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    text-align: center;
+}
+.request_bottom p{
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: center;
+}
+
+/* Add ride */
+.ride_from {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.ride_from .input{
+    width: 100%;
+}
+.ride_from input{
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+}
+.ride_from img{
+    margin-left: 17px;
+}
+.add_form select{
+    max-width: 378px;
+    width: 100%;
+    height: 30px;
+    padding: 0 8px 0 0;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    background-color: transparent;
+    appearance: auto;
+    margin-bottom: 20px;
+}
+.add_form .ride_dates {
+    margin: 23px 0 35px;
+}
+.ride_dates input{
+    width: 100%;
+    height: 30px;
+    padding: 4px;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-align: center;
+}
+.add_ride_button{
+    max-width: 300px;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #121212;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    display:flex;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 50px;
+    font-weight: normal;
+    text-transform: initial;
+}
+.add_form .size_type{
+    width: 55px;
+    height: 30px;
+    padding: 0 8px;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    text-decoration: none solid rgb(255, 255, 255);
+    background-color: transparent;
 }

@@ -17,6 +17,8 @@ import Notifications from '../pages/user/notifications.svelte';
 
 /* Ride */
 import Ride from '../pages/ride/index.svelte';
+import RideRequests from '../pages/ride/requests.svelte';
+import AddRide from '../pages/ride/add.svelte';
 
 /* Bid */
 import Bid from '../pages/bid/index.svelte';
@@ -29,7 +31,7 @@ let routes = [
   /* Auth */
   {
     path: '/',
-    component: Invite,
+    component: Login,
   },
   {
     path: '/register/',
@@ -83,6 +85,15 @@ let routes = [
     path: '/ride/',
     component: Ride,
   },
+  {
+    path: '/ride-requests/',
+    component: RideRequests,
+  },
+  {
+    path: '/add-ride/',
+    component: AddRide,
+  },
+
   /* Bids */
   {
     path: '/bid/',

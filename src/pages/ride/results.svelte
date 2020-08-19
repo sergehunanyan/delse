@@ -1,14 +1,13 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link href="/add-bid/" class="add_ride">
-            <span></span>
-            <span></span>
+        <Link class="back_to_user" href="/ride/">
+            <img src="../../static/images/back.svg" alt="Back">
         </Link>
 
         <Toolbar tabbar class="ride_tabs">
-            <Link tabLink tabLinkActive>Мои заявки</Link>
-            <Link tabLink>Найти поездки</Link>
+            <Link tabLink>Мои поездки</Link>
+            <Link tabLink tabLinkActive>Найти заявки</Link>
         </Toolbar>
 
         <div class="second_menu">
@@ -47,12 +46,19 @@
                             <p><img src="../../static/images/sizes.svg" alt="Weight" width="19"
                                     height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5 м</p>
                         </Block>
-                        <p><span>СПОСОБ ОПЛАТЫ: </span>1111 XXXX XXXX 4444 <img src="../../static/images/visa.svg" alt="VISA" width="19" height="20"></p>
+                        <p><span>СПОСОБ ОПЛАТЫ: </span>Карта</p>
                         <div class="ride_extra_info">Дополнительная информация о грузе, особенностях упаковки и подробности доставки</div>
                     </div>
                     <div class="bottom">
-                        <p><span>Всего предложений: </span>2</p>
-                        <Button href="/ride-requests/" round>Посмотреть предложения</Button>
+                        <Block class="ride_request_rating">
+                            <div class="top">
+                                <span>Рейтинг: </span>
+                                <div class="rate">4,1</div>
+                                <Icon f7="star_fill" size="16px" color="black" />
+                            </div>
+                            <div class="status">Профессионал</div>
+                        </Block>
+                        <Button round>Отправить предложение</Button>
                     </div>
                 </div>
             </ListItem>
