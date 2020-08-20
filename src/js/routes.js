@@ -19,9 +19,15 @@ import Notifications from '../pages/user/notifications.svelte';
 import Ride from '../pages/ride/index.svelte';
 import RideRequests from '../pages/ride/requests.svelte';
 import AddRide from '../pages/ride/add.svelte';
+import SearchRide from '../pages/ride/search.svelte';
+import RideResults from '../pages/ride/results.svelte';
 
 /* Bid */
 import Bid from '../pages/bid/index.svelte';
+import BidRequests from '../pages/bid/requests.svelte';
+import AddBid from '../pages/bid/add.svelte';
+import SearchBid from '../pages/bid/search.svelte';
+import BidResults from '../pages/bid/results.svelte';
 
 /* Package */
 import Package from '../pages/package/index.svelte';
@@ -31,7 +37,7 @@ let routes = [
   /* Auth */
   {
     path: '/',
-    component: Login,
+    component: AddBid,
   },
   {
     path: '/register/',
@@ -93,18 +99,44 @@ let routes = [
     path: '/add-ride/',
     component: AddRide,
   },
+  {
+    path: '/search-ride/',
+    component: SearchRide,
+  },
+  {
+    path: '/ride-results/',
+    component: RideResults,
+  },
 
   /* Bids */
   {
     path: '/bid/',
     component: Bid,
   },
+  {
+    path: '/bid-requests/',
+    component: BidRequests,
+  },
+  {
+    path: '/add-bid/',
+    component: AddBid,
+  },
+  {
+    path: '/search-bid/',
+    component: SearchBid,
+  },
+  {
+    path: '/bid-results/',
+    component: BidResults,
+  },
 
+  /* Packages */
   {
     path: '/package/',
     component: Package,
   },
 
+  /* Notifications */
   {
     path: '/notifications/',
     component: Notifications,

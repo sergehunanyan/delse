@@ -6,10 +6,10 @@
             <span></span>
         </Link>
 
-        <Toolbar tabbar class="ride_tabs">
-            <Link tabLink tabLinkActive>Мои заявки</Link>
-            <Link tabLink>Найти поездки</Link>
-        </Toolbar>
+        <div class="header_navigation">
+            <a href="/ride/" class="active">Мои заявки</a>
+            <a href="/search-ride/">Найти поездки</a>
+        </div>
 
         <div class="second_menu">
             <span></span>

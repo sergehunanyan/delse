@@ -6,8 +6,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/" class="active">Мои поездки</a>
-            <a href="/search-ride/">Найти заявки</a>
+            <a href="/ride/">Мои поездки</a>
+            <a href="/search-ride/" class="active">Найти заявки</a>
         </div>
     </Block>
 
@@ -25,11 +25,11 @@
 
             <div class="ride_dates">
                 <div>
-                    <p>МОГУ ЗАБРАТЬ:</p>
+                    <p>НУЖНО ЗАБРАТЬ:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
                 <div>
-                    <p>МОГУ ДОСТАВИТЬ:</p>
+                    <p>НУЖНО ДОСТАВИТЬ:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
             </div>
@@ -46,15 +46,10 @@
                 <option value="8">Мусор и отходы</option>
             </select>
 
-            <select name="transport">
-                <option value="0">Тип транспорта:</option>
-                <option value="1">Вело/Мото</option>
-                <option value="2">Поезд</option>
-                <option value="3">Легковой автомобиль</option>
-                <option value="4">Минивэн</option>
-                <option value="5">Микроавтобус</option>
-                <option value="6">Грузовой автомобиль</option>
-                <option value="7">Самолёт</option>
+            <select name="payment">
+                <option value="0">Способ оплаты:</option>
+                <option value="1">Наличными</option>
+                <option value="2">Карта</option>
             </select>
 
             <div class="add_weight">
@@ -100,7 +95,7 @@
             </div>
 
             <Block class="login_button_block">
-                <Button href="/ride/" class="add_ride_button" round>Добавить поездку</Button>
+                <Button href="/ride-results/" class="add_ride_button" round>Найти заявки</Button>
             </Block>
         </form>
     </Block>

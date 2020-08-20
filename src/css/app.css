@@ -645,47 +645,58 @@ input::placeholder{
 /* Rides */
 .rides_header{
     margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.rides_page .toolbar.ride_tabs {
+.rides_header .second_menu{
     position: relative;
-    background-color: transparent;
-    backdrop-filter: none;
+    transform: none;
+    right: 0;
+    min-width: 22px;
 }
-.ride_tabs .toolbar-inner{
-    justify-content:center;
+.header_navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
-.ride_tabs .toolbar-inner .tab-link{
+.header_navigation a{
     max-width: 127px;
     width: 100%;
-    height: 40px;
+    height: 38px;
     border: 1px solid #333333;
     font-size: 14px;
     color: #000000;
     text-decoration: none solid rgb(0, 0, 0);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.ride_tabs .toolbar-inner .tab-link:first-child{
+.header_navigation a:first-child{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
-.ride_tabs .toolbar-inner .tab-link:last-child{
+.header_navigation a:last-child{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.ride_tabs .toolbar-inner .tab-link.tab-link-active{
+.header_navigation a.active{
     background-color: #333333;
     color: #ffba2b;
 }
+@media all and (max-width: 360px) {
+    .header_navigation a {
+        max-width: 110px;
+        font-size: 13px;
+    }
+}
+
 .add_ride{
-    width: 22px;
+    min-width: 22px;
     height: 22px;
     border-radius: 50%;
     border: 1px solid #000;
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    z-index: 99999999;
 }
 .add_ride span{
     width: 16px;
@@ -784,7 +795,7 @@ input::placeholder{
 .my_rides .bottom p {
     padding: 0 8px;
     font-size: 14px;
-    line-height: 30px;
+    line-height: 20px;
     color: #ffba2b;
     text-decoration: none solid rgb(255, 186, 43);
 }
@@ -980,10 +991,128 @@ input::placeholder{
 }
 .add_form .size_type{
     width: 55px;
-    height: 30px;
+    height: 25px;
     padding: 0 8px;
     border-bottom: 1px solid #e6e3df;
     font-size: 14px;
     text-decoration: none solid rgb(255, 255, 255);
     background-color: transparent;
+}
+.add_weight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add_weight_block{
+    flex-basis: 47%;
+    display: flex;
+    align-items: center;
+}
+.add_weight_block label{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 8px 0 0;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+}
+
+.add_weight_block select, .add_weight_block input{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 8px 0 0;
+    border-bottom: 1px solid #e6e3df;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    margin-bottom: 0;
+}
+.add_weight_block input{
+    border-bottom: none;
+    text-align:center;
+}
+.add_weight_block select{
+    max-width: 54px;
+    width: 100%;
+    margin-left: 17px;
+}
+.add_weight_block input:focus{
+    border-bottom: none;
+}
+.add_weight_block p{
+    max-width: 40px;
+    width: 100%;
+    text-align: center;
+    margin-left: 17px;
+    line-height: 30px;
+    border-bottom: 1px solid #e6e3df;
+}
+.add_sizes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add_sizes select{
+    margin-bottom: 0;
+}
+.add_sizes_middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.add_sizes_middle span{
+    margin: 0 10px;
+    height: 27px;
+    font-size: 20px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+}
+.add_sizes_middle_block p {
+    font-size: 11px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    text-align: center;
+    margin: 0;
+}
+
+/* Bid request */
+.add_bid_price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 27px;
+}
+.add_bid_price label{
+    font-size: 16px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    display: flex;
+    align-items: center;
+}
+.add_bid_price .input input{
+    height: 30px;
+    padding: 0 8px;
+    border-bottom: 1px solid #000000;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: center;
+    margin-left: 10px;
+}
+.add_bid_price select{
+    max-width: 60px;
+    width: 100%;
+    height: 30px;
+    padding: 4px;
+    border-bottom: 1px solid #000000;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    background-color: transparent;
+    appearance: auto;
+    margin-left: 40px;
 }

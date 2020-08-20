@@ -1,15 +1,15 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link href="/add-ride/" class="add_ride">
+        <Link href="/add-bid/" class="add_ride">
             <span></span>
             <span></span>
         </Link>
 
-        <Toolbar tabbar class="ride_tabs">
-            <Link tabLink tabLinkActive>Мои поездки</Link>
-            <Link tabLink>Найти заявки</Link>
-        </Toolbar>
+        <div class="header_navigation">
+            <a href="/bid/" class="active">Мои заявки</a>
+            <a href="/search-bid/">Найти поездки</a>
+        </div>
 
         <div class="second_menu">
             <span></span>

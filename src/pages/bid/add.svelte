@@ -1,13 +1,13 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link class="back_to_user" href="/ride/">
+        <Link class="back_to_user" href="/bid/">
             <img src="../../static/images/back.svg" alt="Back">
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/" class="active">Мои поездки</a>
-            <a href="/search-ride/">Найти заявки</a>
+            <a href="/bid/" class="active">Мои заявки</a>
+            <a href="/search-bid/">Найти поездки</a>
         </div>
     </Block>
 
@@ -25,11 +25,11 @@
 
             <div class="ride_dates">
                 <div>
-                    <p>МОГУ ЗАБРАТЬ:</p>
+                    <p>НУЖНО ЗАБРАТЬ:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
                 <div>
-                    <p>МОГУ ДОСТАВИТЬ:</p>
+                    <p>НУЖНО ДОСТАВИТЬ:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
             </div>

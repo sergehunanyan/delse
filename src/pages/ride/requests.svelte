@@ -5,10 +5,10 @@
             <img src="../../static/images/back.svg" alt="Back">
         </Link>
 
-        <Toolbar tabbar class="ride_tabs">
-            <Link tabLink tabLinkActive>Мои поездки</Link>
-            <Link tabLink>Найти заявки</Link>
-        </Toolbar>
+        <div class="header_navigation">
+            <a href="/ride/" class="active">Мои заявки</a>
+            <a href="/search-ride/">Найти поездки</a>
+        </div>
 
         <div class="second_menu">
             <span></span>

@@ -1,13 +1,13 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link class="back_to_user" href="/ride/">
+        <Link class="back_to_user" href="/bid/">
             <img src="../../static/images/back.svg" alt="Back">
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/">Мои поездки</a>
-            <a href="/search-ride/" class="active">Найти заявки</a>
+            <a href="/bid/" class="active">Мои заявки</a>
+            <a href="/search-bid/">Найти поездки</a>
         </div>
 
         <div class="second_menu">
@@ -38,16 +38,15 @@
                         </div>
                     </div>
                     <div class="info">
-                        <p><span>НАИМЕНОВАНИЕ: </span>Одежда</p>
-                        <p><span>ТИП ГРУЗА: </span>Мелкогабаритные грузы</p>
-                        <Block class="ride_img_params">
-                            <p><img src="../../static/images/weight.svg" alt="Weight" width="20"
-                                    height="22"><span>ВЕС: </span>10 кг</p>
-                            <p><img src="../../static/images/sizes.svg" alt="Weight" width="19"
-                                    height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5 м</p>
-                        </Block>
-                        <p><span>СПОСОБ ОПЛАТЫ: </span>Карта</p>
-                        <div class="ride_extra_info">Дополнительная информация о грузе, особенностях упаковки и подробности доставки</div>
+                        <div class="add_bid_price">
+                            <label>Стоимость: <Input type="text" readonly value="20"/></label>
+                            <select name="transport">
+                                <option value="0">BYN</option>
+                                <option value="1">USD</option>
+                                <option value="2">EUR</option>
+                                <option value="3">AMD</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="bottom">
                         <Block class="ride_request_rating">
@@ -78,11 +77,9 @@
         Block,
         Button,
         Icon,
+        Input,
         List,
-        ListItem,
-        Toolbar,
-        Tabs,
-        Tab
+        ListItem
     } from 'framework7-svelte';
 
 </script>

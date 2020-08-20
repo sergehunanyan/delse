@@ -1,13 +1,13 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link class="back_to_user" href="/ride/">
+        <Link class="back_to_user" href="/bid/">
             <img src="../../static/images/back.svg" alt="Back">
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/">Мои поездки</a>
-            <a href="/search-ride/" class="active">Найти заявки</a>
+            <a href="/bid/">Мои заявки</a>
+            <a href="/search-bid/" class="active">Найти поездки</a>
         </div>
 
         <div class="second_menu">
@@ -29,16 +29,15 @@
                     </div>
                     <div class="ride_dates">
                         <div>
-                            <p>НУЖНО ЗАБРАТЬ:</p>
+                            <p>МОГУ ЗАБРАТЬ:</p>
                             <p>17.07 - 20.07.2020</p>
                         </div>
                         <div>
-                            <p>НУЖНО ДОСТАВИТЬ:</p>
+                            <p>МОГУ ДОСТАВИТЬ:</p>
                             <p>21.07.2020</p>
                         </div>
                     </div>
                     <div class="info">
-                        <p><span>НАИМЕНОВАНИЕ: </span>Одежда</p>
                         <p><span>ТИП ГРУЗА: </span>Мелкогабаритные грузы</p>
                         <Block class="ride_img_params">
                             <p><img src="../../static/images/weight.svg" alt="Weight" width="20"
@@ -46,8 +45,7 @@
                             <p><img src="../../static/images/sizes.svg" alt="Weight" width="19"
                                     height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5 м</p>
                         </Block>
-                        <p><span>СПОСОБ ОПЛАТЫ: </span>Карта</p>
-                        <div class="ride_extra_info">Дополнительная информация о грузе, особенностях упаковки и подробности доставки</div>
+                        <p><span>ТИП ТРАНСПОРТА: </span>Поезд</p>
                     </div>
                     <div class="bottom">
                         <Block class="ride_request_rating">
@@ -58,7 +56,7 @@
                             </div>
                             <div class="status">Профессионал</div>
                         </Block>
-                        <Button round>Отправить предложение</Button>
+                        <Button round>Оставить заявку</Button>
                     </div>
                 </div>
             </ListItem>
