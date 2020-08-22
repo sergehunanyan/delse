@@ -141,10 +141,54 @@ input::placeholder{
     padding: 0 17px;
 }
 .logo {
-    display: flex;
-    justify-content: center;
-    margin-top: 44px;
+    display: inline-block;
+    margin: 44px auto 0;
+    position: relative;
 }
+.left_animation{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #ffba2b;
+    position: absolute;
+    bottom: 6px;
+    left: 9px;
+    animation: to-left 4s infinite;
+}
+.right_animation{
+    content: "";
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid #ffba2b;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    animation: to-right 4s infinite;
+}
+@keyframes to-left {
+    0% {
+        left: 9px;
+    }
+    50% {
+        left: 149px;
+    }
+    100% {
+        left: 9px;
+    }
+}
+@keyframes to-right {
+    0% {
+        right: 10px;
+    }
+    50% {
+        right: 149px;
+    }
+    100% {
+        right: 10px;
+    }
+}
+
 .logo img {
     width: 182px;
 }
@@ -198,11 +242,8 @@ input::placeholder{
 /* Forgot */
 .forgot_page .page-content{
     padding: 0 17px;
-}
-.forgot_page .logo {
     display: flex;
-    justify-content: center;
-    margin-top: 44px;
+    flex-direction: column;
 }
 .forgot_buttons{
     width: 300px;
@@ -237,6 +278,8 @@ input::placeholder{
 /* Register */
 .register_page .page-content{
     padding: 0 17px;
+    display: flex;
+    flex-direction: column;
 }
 .register_1_form{
     margin-top: 150px;
@@ -734,6 +777,11 @@ input::placeholder{
     font-size: 14px;
     color: #f5f5f5;
     text-decoration: none solid rgb(245, 245, 245);
+    margin: 0;
+    white-space: pre-line;
+}
+.ride_from_to p:first-child{
+    margin-bottom: 20px;
 }
 .my_rides li .item-inner{
     flex-direction:column;
@@ -868,6 +916,51 @@ input::placeholder{
     color: #ffffff;
     text-decoration: none solid rgb(255, 255, 255);
     margin-bottom: 10px;
+}
+.info_image{
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+}
+.info_image span{
+    font-size: 14px;
+    line-height: 22px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    margin-left: 10px;
+}
+.show .full_image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    border-radius: 20px;
+    background-position: center;
+    background-size: cover;
+}
+.full_image .close{
+    display:none;
+}
+.show .full_image .close{
+    display:block;
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffba2b;
+    font-size: 14px;
+    color: #000000;
+    -webkit-text-decoration: none solid rgb(0, 0, 0);
+    -moz-text-decoration: none solid rgb(0, 0, 0);
+    text-decoration: none solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.7);
 }
 .ride_request_rating {
     margin: 0;
@@ -1115,4 +1208,43 @@ input::placeholder{
     background-color: transparent;
     appearance: auto;
     margin-left: 40px;
+}
+
+/* From to animation */
+.ride_from_to_block{
+    display:flex;
+    align-items:stretch;
+    margin-bottom: 15px;
+}
+.from_to_animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 12px;
+    position: relative;
+}
+.from_to_animation .a, .from_to_animation .b{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #000;
+}
+.animation_element{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #ffba2b;
+    top: 16%;
+    left: -1px;
+    border-radius: 50%;
+    animation: to-bottom 2s infinite;
+}
+
+@keyframes to-bottom {
+    from {
+        top: 16%;
+    }
+    to {
+        top: 67%;
+    }
 }

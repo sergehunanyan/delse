@@ -1,14 +1,14 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link href="/add-bid/" class="add_ride">
+        <Link href="/add-ride/" class="add_ride">
             <span></span>
             <span></span>
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/" class="active">Мои заявки</a>
-            <a href="/search-bid/">Найти поездки</a>
+            <a href="/ride/" class="active">Мои поездки</a>
+            <a href="/search-ride/">Найти заявки</a>
         </div>
 
         <div class="second_menu">
@@ -22,11 +22,18 @@
         <List class="my_rides">
             <ListItem>
                 <div class="ride_block">
-                    <div class="ride_from_to">
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
+                    <div class="ride_from_to_block">
+                        <div class="from_to_animation">
+                            <div class="animation_element"></div>
+                            <div class="a"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="ride_from_to">
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                        </div>
                     </div>
                     <div class="ride_dates">
                         <div>

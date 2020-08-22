@@ -7,8 +7,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/" class="active">Мои заявки</a>
-            <a href="/search-ride/">Найти поездки</a>
+            <a href="/bid/" class="active">Мои заявки</a>
+            <a href="/search-bid/">Найти поездки</a>
         </div>
 
         <div class="second_menu">
@@ -22,11 +22,18 @@
         <List class="my_rides">
             <ListItem>
                 <div class="ride_block">
-                    <div class="ride_from_to">
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
+                    <div class="ride_from_to_block">
+                        <div class="from_to_animation">
+                            <div class="animation_element"></div>
+                            <div class="a"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="ride_from_to">
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                        </div>
                     </div>
                     <div class="ride_dates">
                         <div>
@@ -49,6 +56,13 @@
                         </Block>
                         <p><span>СПОСОБ ОПЛАТЫ: </span>1111 XXXX XXXX 4444 <img src="../../static/images/visa.svg" alt="VISA" width="19" height="20"></p>
                         <div class="ride_extra_info">Дополнительная информация о грузе, особенностях упаковки и подробности доставки</div>
+                        <div class="info_image">
+                            <img src="../../static/images/photo.svg" alt="Weight" width="20" height="22">
+                            <span>Посмотреть фото</span>
+                            <div class="full_image" style="background-image: url(../../static/images/example.png)">
+                                <div class="close">X</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="bottom">
                         <p><span>Всего предложений: </span>2</p>

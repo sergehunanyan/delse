@@ -21,11 +21,18 @@
         <List class="my_rides">
             <ListItem>
                 <div class="ride_block">
-                    <div class="ride_from_to">
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
-                        <p>Страна, Город
-                            улица, номер дома, название объекта</p>
+                    <div class="ride_from_to_block">
+                        <div class="from_to_animation">
+                            <div class="animation_element"></div>
+                            <div class="a"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="ride_from_to">
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                            <p>Страна, Город
+                                улица, номер дома, название объекта</p>
+                        </div>
                     </div>
                     <div class="ride_dates">
                         <div>

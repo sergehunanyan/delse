@@ -1,7 +1,9 @@
 <Page name="login" class="login_page">
 
     <Link href="/" class="logo">
+        <span class="left_animation"></span>
         <img src="../../static/images/logo.png" alt="Logo">
+        <span class="right_animation"></span>
     </Link>
 
     <form class="login_form">

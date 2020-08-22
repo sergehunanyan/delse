@@ -37,7 +37,7 @@ let routes = [
   /* Auth */
   {
     path: '/',
-    component: AddBid,
+    component: Login,
   },
   {
     path: '/register/',
@@ -51,6 +51,8 @@ let routes = [
     path: '/forgot/',
     component: Forgot,
   },
+
+
 
   /* User profile */
   {
@@ -86,6 +88,8 @@ let routes = [
     component: Socials,
   },
 
+
+
   /* Rides */
   {
     path: '/ride/',
@@ -108,6 +112,8 @@ let routes = [
     component: RideResults,
   },
 
+
+
   /* Bids */
   {
     path: '/bid/',
@@ -129,6 +135,8 @@ let routes = [
     path: '/bid-results/',
     component: BidResults,
   },
+
+
 
   /* Packages */
   {
