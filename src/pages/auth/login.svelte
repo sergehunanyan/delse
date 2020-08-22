@@ -6,15 +6,17 @@
         <span class="right_animation"></span>
     </Link>
 
-    <form class="login_form">
-        <Input type="email" placeholder="Email"/>
+    <form class="login_form" on:submit|preventDefault={login}>
+        <Input type="email" name="email" placeholder="Email"/>
 
-        <Input type="password" placeholder="Пароль"/>
+        <Input type="password" name="password" placeholder="Пароль"/>
 
         <Link class="to_forgot" href="/forgot/">Забыли пароль?</Link>
 
+        <div class="validation_error {validation_error === true ? 'show' : 'hide'}">Неверные данные</div>
+
         <Block class="login_button_block">
-            <Button href="/user/" class="login_button" round>Войти</Button>
+            <Button type="submit" class="login_button" round>Войти</Button>
         </Block>
     </form>
 
@@ -32,4 +34,29 @@
         Block,
         Input,
     } from 'framework7-svelte';
+    import axios from 'axios'
+
+    export let f7router;
+
+    let validation_error = false;
+
+    function login(event) {
+        const formData = new FormData(event.target);
+        const formUser = {}
+        for (const [k, v] of formData.entries()) {
+            formUser[k] = v
+        }
+        axios({
+            method: 'post',
+            url: 'https://delse.net/users/api/mobile/Account/Login',
+            data: formUser
+        }).then((response) => {
+            if(response.statusText === 'OK'){
+                validation_error = false;
+                f7router.navigate('/user/', response.data.userProfile);
+            }
+        }, () => {
+            validation_error = true;
+        });
+    }
 </script>

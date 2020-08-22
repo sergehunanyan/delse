@@ -31,6 +31,7 @@ import BidResults from '../pages/bid/results.svelte';
 
 /* Package */
 import Package from '../pages/package/index.svelte';
+import Shipping from '../pages/package/shipping.svelte';
 
 let routes = [
 
@@ -142,6 +143,10 @@ let routes = [
   {
     path: '/package/',
     component: Package,
+  },
+  {
+    path: '/shipping/',
+    component: Shipping,
   },
 
   /* Notifications */

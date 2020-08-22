@@ -113,6 +113,13 @@ textarea{
 .m-0{
     margin: 0;
 }
+.validation_error {
+    font-size: 12px;
+    color: #c70000;
+}
+.hide.validation_error{
+    display:none;
+}
 .popup{
     transform: translate3d(0, -100vh, 0);
 }
@@ -203,7 +210,11 @@ textarea{
         right: 10px;
     }
 }
-
+.login_form {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+}
 .logo img {
     width: 182px;
 }
@@ -839,6 +850,9 @@ textarea{
     height: 34px;
     background-color: #ffba2b;
 }
+.hide.info{
+    display:none;
+}
 .my_rides .info p{
     font-size: 14px;
     color: #ffffff;
@@ -856,6 +870,7 @@ textarea{
     align-items: center;
 }
 .my_rides .bottom p {
+    display: flex;
     padding: 0 8px;
     font-size: 14px;
     line-height: 20px;
@@ -1291,4 +1306,79 @@ textarea{
     to {
         top: 67%;
     }
+}
+
+/* Packages */
+.package_block{
+    max-width: 380px;
+    border-radius: 20px;
+    background-color: #333333;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.7);
+    margin-top: 10px;
+    padding: 10px;
+}
+.package_page .my_rides li .item-inner{
+    display:block;
+}
+.package_block_bottom{
+    display: flex;
+    justify-content: space-around;
+    margin: 13px 0;
+}
+.package_block_bottom > div{
+    display: flex;
+    align-items: center;
+}
+.package_block_bottom > div img{
+    margin-right: 10px;
+}
+.package_block_bottom > div span{
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+.package_block .image_block{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.package_block .image_block .user_image{
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    margin: 0 14px 0 0;
+}
+.package_block .image_block .user_info{
+    width: 100%;
+}
+.package_block .image_block .user_info p{
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+    margin: 0 0 10px 10px;
+}
+.package_block .image_block .user_info > div{
+    display: flex;
+    justify-content:space-between;
+}
+.package_block .image_block .user_info > div span{
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+.package_block .image_block .user_info > div .rate {
+    padding: 0 8px;
+    font-size: 14px;
+    color: #ffba2b;
+    text-decoration: none solid rgb(255, 186, 43);
+}
+.package_block .image_block .user_info > div .status{
+    font-family: Lobster;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
 }

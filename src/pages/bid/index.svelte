@@ -87,10 +87,7 @@
         Button,
         Icon,
         List,
-        ListItem,
-        Toolbar,
-        Tabs,
-        Tab
+        ListItem
     } from 'framework7-svelte';
 
 </script>

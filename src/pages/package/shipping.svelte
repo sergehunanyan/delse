@@ -3,8 +3,8 @@
     <Block class="rides_header">
 
         <div class="header_navigation">
-            <a href="/package/" class="active">Посылки</a>
-            <a href="/shipping/">Перевозки</a>
+            <a href="/package/">Посылки</a>
+            <a href="/shipping/" class="active">Перевозки</a>
         </div>
 
         <div class="second_menu">
@@ -98,8 +98,8 @@
                         </div>
                     </div>
                     <div class="bottom">
-                        <p>Статус: <span>Груз доставлен</span></p>
-                        <Button href="/bid-requests/" round>Подтвердить доставку</Button>
+                        <p>Статус: <span>Предложение принято</span></p>
+                        <Button href="/bid-requests/" round>Груз получен</Button>
                     </div>
                 </div>
             </ListItem>

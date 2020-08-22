@@ -138,10 +138,6 @@
         Link,
         Block,
         Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
         Input,
     } from 'framework7-svelte';
 

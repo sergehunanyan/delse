@@ -16,14 +16,9 @@
 
   import routes from '../js/routes';
 
-  // Framework7 Parameters
   let f7params = {
     name: 'Delse',
     theme: 'ios',
-
-
-
-    // App routes
     routes: routes,
   };
 
