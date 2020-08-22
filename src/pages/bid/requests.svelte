@@ -47,7 +47,7 @@
                     <div class="info">
                         <div class="add_bid_price">
                             <label>Стоимость: <Input type="text" readonly value="20"/></label>
-                            <select name="transport">
+                            <select name="transport" disabled>
                                 <option value="0">BYN</option>
                                 <option value="1">USD</option>
                                 <option value="2">EUR</option>

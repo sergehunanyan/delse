@@ -66,7 +66,7 @@
                     </div>
                     <div class="bottom">
                         <p><span>Всего предложений: </span>2</p>
-                        <Button href="/ride-requests/" round>Посмотреть предложения</Button>
+                        <Button href="/bid-requests/" round>Посмотреть предложения</Button>
                     </div>
                 </div>
             </ListItem>

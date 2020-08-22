@@ -97,6 +97,27 @@
                     <option value="0">см</option>
                     <option value="1">м</option>
                 </select>
+
+            </div>
+
+            <textarea name="extra_info" class="extra_info" placeholder="Дополнительная информация о гррузе, особенностях упаковки и деталях доставки"></textarea>
+
+            <div class="add_bid_bottom">
+                <select name="payment_type">
+                    <option value="0">Способ оплаты:</option>
+                    <option value="1">3333 XXXX XXXX 4444</option>
+                    <option value="1">5555 XXXX XXXX 6666</option>
+                    <option value="1">Наличные</option>
+                </select>
+
+                <label>
+                    <div class="add_ride">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    Добавить фото
+                    <Input type="file" class="file_input"/>
+                </label>
             </div>
 
             <Block class="login_button_block">
