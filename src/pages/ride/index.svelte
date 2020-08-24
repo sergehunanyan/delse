@@ -48,8 +48,8 @@
                     <div class="info">
                         <p><span>ТИП ГРУЗА: </span>Мелкогабаритные грузы</p>
                         <Block class="ride_img_params">
-                            <p><img src="../../static/images/weight.svg" alt="Weight" width="20" height="22"><span>ВЕС: </span>10 кг</p>
-                            <p><img src="../../static/images/sizes.svg" alt="Weight" width="19" height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5  м</p>
+                            <p><img src="./static/images/weight.svg" alt="Weight" width="20" height="22"><span>ВЕС: </span>10 кг</p>
+                            <p><img src="./static/images/sizes.svg" alt="Weight" width="19" height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5  м</p>
                         </Block>
                         <p><span>ТИП ТРАНСПОРТА: </span>Поезд</p>
                     </div>
@@ -67,7 +67,7 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
+    import Navigation from '@/components/navigation.svelte'
 
     import {
         Page,

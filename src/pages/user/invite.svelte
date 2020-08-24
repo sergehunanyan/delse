@@ -2,7 +2,7 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Пригласить друга"/>
+    <ProfileHeading heading="Пригласить друга" route={f7router}/>
 
     <Block class="socials_block">
 
@@ -12,22 +12,22 @@
         <List simpleList class="socials_list">
             <ListItem>
                 <a target="_blank" href="https://in.com">
-                    <img src="../../static/images/viber.png" alt="Viber" width="62" height="62">
+                    <img src="./static/images/viber.png" alt="Viber" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://tg.com">
-                    <img src="../../static/images/tg.png" alt="TG" width="62" height="62">
+                    <img src="./static/images/tg.png" alt="TG" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://ok.com">
-                    <img src="../../static/images/wa.png" alt="WA" width="62" height="62">
+                    <img src="./static/images/wa.png" alt="WA" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://fb.com">
-                    <img src="../../static/images/skype.png" alt="Skype" width="62" height="62">
+                    <img src="./static/images/skype.png" alt="Skype" width="62" height="62">
                 </a>
             </ListItem>
         </List>
@@ -50,9 +50,9 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
-    import UserInfo from '../../components/UserInfo.svelte'
-    import ProfileHeading from '../../components/profileHeading.svelte'
+    import Navigation from '@/components/navigation.svelte'
+    import UserInfo from '@/components/UserInfo.svelte'
+    import ProfileHeading from '@/components/profileHeading.svelte'
 
     import {
         Page,
@@ -62,4 +62,6 @@
         Input,
         Button,
     } from 'framework7-svelte';
+
+    export let f7router;
 </script>

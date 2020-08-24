@@ -1,8 +1,8 @@
 <Page name="ride" class="rides_page">
 
     <Block class="rides_header">
-        <Link class="back_to_user" href="/bid/">
-            <img src="../../static/images/back.svg" alt="Back">
+        <Link class="back_to_user" onClick={() => f7router.back()}>
+            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" overflow="visible" preserveAspectRatio="none" width="18" height="18"><path d="M9 1l6.88 12H2.12L9 1z" vector-effect="non-scaling-stroke" stroke="#000" fill="transparent"/></svg>
         </Link>
 
         <div class="header_navigation">
@@ -15,12 +15,12 @@
         <form class="add_form">
             <div class="ride_from">
                 <Input type="text" placeholder="Откуда:"/>
-                <img src="../../static/images/location.svg" alt="Location">
+                <img src="./static/images/location.svg" alt="Location">
             </div>
 
             <div class="ride_from">
                 <Input type="text" placeholder="Куда:"/>
-                <img src="../../static/images/location.svg" alt="Location">
+                <img src="./static/images/location.svg" alt="Location">
             </div>
 
             <div class="ride_dates">
@@ -69,7 +69,7 @@
             </div>
 
             <div class="add_sizes">
-                <img src="../../static/images/sizes_white.svg" alt="Sizes">
+                <img src="./static/images/sizes_white.svg" alt="Sizes">
 
                 <div class="add_sizes_middle">
                     <div class="add_sizes_middle_block">
@@ -105,7 +105,7 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
+    import Navigation from '@/components/navigation.svelte'
 
     import {
         Page,
@@ -119,4 +119,5 @@
         Input,
     } from 'framework7-svelte';
 
+    export let f7router;
 </script>

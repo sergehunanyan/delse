@@ -48,17 +48,17 @@
                         <p><span>НАИМЕНОВАНИЕ: </span>Одежда</p>
                         <p><span>ТИП ГРУЗА: </span>Мелкогабаритные грузы</p>
                         <Block class="ride_img_params">
-                            <p><img src="../../static/images/weight.svg" alt="Weight" width="20"
+                            <p><img src="./static/images/weight.svg" alt="Weight" width="20"
                                     height="22"><span>ВЕС: </span>10 кг</p>
-                            <p><img src="../../static/images/sizes.svg" alt="Weight" width="19"
+                            <p><img src="./static/images/sizes.svg" alt="Weight" width="19"
                                     height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5 м</p>
                         </Block>
-                        <p><span>СПОСОБ ОПЛАТЫ: </span>1111 XXXX XXXX 4444 <img src="../../static/images/visa.svg" alt="VISA" width="19" height="20"></p>
+                        <p><span>СПОСОБ ОПЛАТЫ: </span>1111 XXXX XXXX 4444 <img src="./static/images/visa.svg" alt="VISA" width="19" height="20"></p>
                         <div class="ride_extra_info">Дополнительная информация о грузе, особенностях упаковки и подробности доставки</div>
                         <div class="info_image">
-                            <img src="../../static/images/photo.svg" alt="Weight" width="20" height="22">
+                            <img src="./static/images/photo.svg" alt="Weight" width="20" height="22">
                             <span>Посмотреть фото</span>
-                            <div class="full_image" style="background-image: url(../../static/images/example.png)">
+                            <div class="full_image" style="background-image: url(./static/images/example.png)">
                                 <div class="close">X</div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="package_block">
                     <div class="image_block">
-                        <div class="user_image" style="background-image:url(../../static/images/user.png)"></div>
+                        <div class="user_image" style="background-image:url(./static/images/user.png)"></div>
                         <div class="user_info">
                             <p>Фамилия Имя Отчество</p>
                             <div>
@@ -89,11 +89,11 @@
                     </div>
                     <div class="package_block_bottom">
                         <div>
-                            <img src="../../static/images/phone.svg" alt="Phone" width="20" height="20">
+                            <img src="./static/images/phone.svg" alt="Phone" width="20" height="20">
                             <span>+375 44 518 26 76</span>
                         </div>
                         <div>
-                            <img src="../../static/images/price.svg" alt="Price" width="20" height="20">
+                            <img src="./static/images/price.svg" alt="Price" width="20" height="20">
                             <span>20   BYN</span>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
+    import Navigation from '@/components/navigation.svelte'
 
     import {
         Page,

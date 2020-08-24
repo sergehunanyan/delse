@@ -2,7 +2,7 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Изменение пароля"/>
+    <ProfileHeading heading="Изменение пароля" route={f7router}/>
 
     <form class="reset_password_form">
         <Input type="email" placeholder="Введите новый пароль"/>
@@ -19,9 +19,9 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
-    import UserInfo from '../../components/UserInfo.svelte'
-    import ProfileHeading from '../../components/profileHeading.svelte'
+    import Navigation from '@/components/navigation.svelte'
+    import UserInfo from '@/components/UserInfo.svelte'
+    import ProfileHeading from '@/components/profileHeading.svelte'
 
     import {
         Page,
@@ -29,4 +29,6 @@
         Block,
         Button,
     } from 'framework7-svelte';
+
+    export let f7router;
 </script>

@@ -1,8 +1,11 @@
 <Page name="login" class="login_page">
 
+
+    <div id="map" style="width: 600px; height: 400px"></div>
+
     <Link href="/" class="logo">
         <span class="left_animation"></span>
-        <img src="../../static/images/logo.png" alt="Logo">
+        <img src="./static/images/logo.png" alt="Logo">
         <span class="right_animation"></span>
     </Link>
 
@@ -34,11 +37,10 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import axios from 'axios'
-
-    export let f7router;
+    import api from '@/js/api'
 
     let validation_error = false;
+    export let f7router;
 
     function login(event) {
         const formData = new FormData(event.target);
@@ -46,17 +48,13 @@
         for (const [k, v] of formData.entries()) {
             formUser[k] = v
         }
-        axios({
-            method: 'post',
-            url: 'https://delse.net/users/api/mobile/Account/Login',
-            data: formUser
-        }).then((response) => {
-            if(response.statusText === 'OK'){
+
+        api.post('users/api/mobile/Account/Login', formUser)
+            .then((response) => {
                 validation_error = false;
-                f7router.navigate('/user/', response.data.userProfile);
-            }
-        }, () => {
-            validation_error = true;
-        });
+                f7router.navigate('/user/', response.userProfile);
+            }, () => {
+                validation_error = true;
+            })
     }
 </script>

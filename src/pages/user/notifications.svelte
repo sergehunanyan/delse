@@ -29,7 +29,7 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
+    import Navigation from '@/components/navigation.svelte'
 
     import {
         Page,

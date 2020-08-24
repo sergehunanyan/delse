@@ -2,7 +2,7 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Настройки"/>
+    <ProfileHeading heading="Настройки" route={f7router}/>
 
     <List simpleList class="user_settings_list">
         <ListItem>
@@ -27,9 +27,9 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
-    import UserInfo from '../../components/UserInfo.svelte'
-    import ProfileHeading from '../../components/profileHeading.svelte'
+    import Navigation from '@/components/navigation.svelte'
+    import UserInfo from '@/components/UserInfo.svelte'
+    import ProfileHeading from '@/components/profileHeading.svelte'
 
     import {
         Page,
@@ -38,4 +38,6 @@
         Toggle,
         Link,
     } from 'framework7-svelte';
+
+    export let f7router;
 </script>

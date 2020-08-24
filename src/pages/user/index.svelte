@@ -29,8 +29,8 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
-    import UserInfo from '../../components/UserInfo.svelte'
+    import Navigation from '@/components/navigation.svelte'
+    import UserInfo from '@/components/UserInfo.svelte'
 
     import {
         Page,

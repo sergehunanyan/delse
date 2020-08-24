@@ -2,7 +2,7 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Настройки"/>
+    <ProfileHeading heading="Настройки" route={f7router}/>
 
     <Block class="socials_block">
 
@@ -11,22 +11,22 @@
         <List simpleList class="socials_list">
             <ListItem>
                 <a target="_blank" href="https://in.com">
-                    <img src="../../static/images/in.png" alt="Instagram" width="62" height="62">
+                    <img src="./static/images/in.png" alt="Instagram" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://vk.com">
-                    <img src="../../static/images/vk.png" alt="VK" width="62" height="62">
+                    <img src="./static/images/vk.png" alt="VK" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://ok.com">
-                    <img src="../../static/images/ok.png" alt="OK" width="62" height="62">
+                    <img src="./static/images/ok.png" alt="OK" width="62" height="62">
                 </a>
             </ListItem>
             <ListItem>
                 <a target="_blank" href="https://fb.com">
-                    <img src="../../static/images/fb.png" alt="FB" width="62" height="62">
+                    <img src="./static/images/fb.png" alt="FB" width="62" height="62">
                 </a>
             </ListItem>
         </List>
@@ -38,9 +38,9 @@
 </Page>
 
 <script>
-    import Navigation from '../../components/navigation.svelte'
-    import UserInfo from '../../components/UserInfo.svelte'
-    import ProfileHeading from '../../components/profileHeading.svelte'
+    import Navigation from '@/components/navigation.svelte'
+    import UserInfo from '@/components/UserInfo.svelte'
+    import ProfileHeading from '@/components/profileHeading.svelte'
 
     import {
         Page,
@@ -49,4 +49,6 @@
         List,
         Link
     } from 'framework7-svelte';
+
+    export let f7router;
 </script>

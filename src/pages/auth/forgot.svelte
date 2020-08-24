@@ -2,12 +2,12 @@
 
     <Link href="/" class="logo">
         <span class="left_animation"></span>
-        <img src="../../static/images/logo.png" alt="Logo">
+        <img src="./static/images/logo.png" alt="Logo">
         <span class="right_animation"></span>
     </Link>
 
     <Link class="back_to_login" href="/">
-        <img src="../../static/images/back.svg" alt="Back">
+        <img src="./static/images/back.svg" alt="Back">
     </Link>
 
     <form class="login_form">
