@@ -38,7 +38,7 @@ let routes = [
   /* Auth */
   {
     path: '/',
-    component: AddRide,
+    component: Login,
   },
   {
     path: '/register/',

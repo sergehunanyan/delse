@@ -17,18 +17,13 @@
     <Block class="m-0">
         <form class="add_form">
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:"/>
-                <img src="./static/images/location.svg" alt="Location">
-            </div>
-
-            <div class="ride_from">
-                <Input type="text" placeholder="Куда:"/>
-                <Button fill popupOpen=".demo-popup" class="open_map">
+                <Input type="text" placeholder="Откуда:" inputId="ride_from"/>
+                <Button fill popupOpen=".ride_from_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
             </div>
 
-            <Popup class="demo-popup" opened={popupOpened} onPopupClosed={() => popupOpened = false}>
+            <Popup class="ride_from_popup" opened={popupOpened} onPopupClosed={() => popupOpened = false}>
                 <Page>
                     <Navbar>
                         <NavRight>
@@ -36,7 +31,27 @@
                         </NavRight>
                     </Navbar>
                     <Block style="height:100%;margin:0;padding:0;">
-                        <div id="map" style="width: 600px; min-height: 100%;"></div>
+                        <div id="ride_from_map" style="width: 100%; min-height: 100%;"></div>
+                    </Block>
+                </Page>
+            </Popup>
+
+            <div class="ride_from">
+                <Input type="text" placeholder="Куда:" inputId="ride_to"/>
+                <Button fill popupOpen=".ride_to_popup" class="open_map">
+                    <img src="./static/images/location.svg" alt="Location">
+                </Button>
+            </div>
+
+            <Popup class="ride_to_popup" opened={popupOpened} onPopupClosed={() => popupOpened = false}>
+                <Page>
+                    <Navbar>
+                        <NavRight>
+                            <Link popupClose>Закрыть</Link>
+                        </NavRight>
+                    </Navbar>
+                    <Block style="height:100%;margin:0;padding:0;">
+                        <div id="ride_to_map" style="width: 100%; min-height: 100%;"></div>
                     </Block>
                 </Page>
             </Popup>
@@ -145,65 +160,10 @@
         NavRight,
     } from 'framework7-svelte';
 
-    ymaps.ready(init);
+    import newMap from '@/js/map'
 
-    function init() {
-        let inputSearch = new ymaps.control.SearchControl({
-            options: {
-                size: 'large',
-                provider: 'yandex#search'
-            }
-        });
-
-        let myPlacemark,
-                myMap = new ymaps.Map("map", {
-                    center: [55.76, 37.64],
-                    zoom: 7,
-                    controls: ['zoomControl', 'geolocationControl', inputSearch],
-                });
-
-        myMap.events.add('click', function (e) {
-            let coords = e.get('coords');
-            if (myPlacemark) {
-                myPlacemark.geometry.setCoordinates(coords);
-            }
-            else {
-                myPlacemark = createPlacemark(coords);
-                myMap.geoObjects.add(myPlacemark);
-                myPlacemark.events.add('dragend', function () {
-                    getAddress(myPlacemark.geometry.getCoordinates());
-                });
-            }
-            console.log(coords)
-            console.log(coords[0].toPrecision(6))
-            console.log(coords[1].toPrecision(6))
-            getAddress(coords);
-        });
-
-        function createPlacemark(coords) {
-            return new ymaps.Placemark(coords, {
-                iconCaption: 'поиск...'
-            }, {
-                preset: 'islands#violetDotIconWithCaption',
-                draggable: true
-            });
-        }
-
-        function getAddress(coords) {
-            myPlacemark.properties.set('iconCaption', 'поиск...');
-            ymaps.geocode(coords).then(function (res) {
-                let firstGeoObject = res.geoObjects.get(0);
-                myPlacemark.properties.set({
-                    iconCaption: [
-                        firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-                        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-                    ].filter(Boolean).join(', '),
-                    balloonContent: firstGeoObject.getAddressLine()
-                });
-            });
-        }
-
-    }
+    newMap('ride_from', 'ride_from_map');
+    newMap('ride_to', 'ride_to_map');
 
     export let f7router;
 

@@ -14,14 +14,44 @@
     <Block class="m-0">
         <form class="add_form">
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:"/>
-                <img src="./static/images/location.svg" alt="Location">
+                <Input type="text" placeholder="Откуда:" inputId="bid_from"/>
+                <Button fill popupOpen=".bid_from_popup" class="open_map">
+                    <img src="./static/images/location.svg" alt="Location">
+                </Button>
             </div>
 
+            <Popup class="bid_from_popup" opened={popupOpened} onPopupClosed={() => popupOpened = false}>
+                <Page>
+                    <Navbar>
+                        <NavRight>
+                            <Link popupClose>Закрыть</Link>
+                        </NavRight>
+                    </Navbar>
+                    <Block style="height:100%;margin:0;padding:0;">
+                        <div id="bid_from_map" style="width: 100%; min-height: 100%;"></div>
+                    </Block>
+                </Page>
+            </Popup>
+
             <div class="ride_from">
-                <Input type="text" placeholder="Куда:"/>
-                <img src="./static/images/location.svg" alt="Location">
+                <Input type="text" placeholder="Куда:" inputId="bid_to"/>
+                <Button fill popupOpen=".bid_to_popup" class="open_map">
+                    <img src="./static/images/location.svg" alt="Location">
+                </Button>
             </div>
+
+            <Popup class="bid_to_popup" opened={popupOpened} onPopupClosed={() => popupOpened = false}>
+                <Page>
+                    <Navbar>
+                        <NavRight>
+                            <Link popupClose>Закрыть</Link>
+                        </NavRight>
+                    </Navbar>
+                    <Block style="height:100%;margin:0;padding:0;">
+                        <div id="bid_to_map" style="width: 100%; min-height: 100%;"></div>
+                    </Block>
+                </Page>
+            </Popup>
 
             <div class="ride_dates">
                 <div>
@@ -131,15 +161,27 @@
 </Page>
 
 <script>
-    import Navigation from '@/components/navigation.svelte'
-
     import {
         Page,
         Link,
         Block,
         Button,
+        Icon,
+        List,
+        ListItem,
+        Toolbar,
         Input,
+        Popup,
+        Navbar,
+        NavRight,
     } from 'framework7-svelte';
+    import Navigation from '@/components/navigation.svelte'
+    import newMap from '@/js/map'
+
+    newMap('bid_from', 'bid_from_map');
+    newMap('bid_to', 'bid_to_map');
 
     export let f7router;
+
+    let popupOpened = false;
 </script>
