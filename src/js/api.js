@@ -5,9 +5,15 @@ const axiosAPI = axios.create({
 });
 
 const apiRequest = (method, url, request) => {
-    const headers = {
-        authorization: ""
-    };
+    let headers;
+    let token = localStorage.getItem("token");
+    if(token !== null){
+        headers = {
+            "Authorization": "Bearer "+token
+        };
+    }else{
+        headers = {}
+    }
 
     return axiosAPI({
         method,
@@ -17,7 +23,7 @@ const apiRequest = (method, url, request) => {
     }).then(res => {
         return res.data;
     }).catch(err => {
-        return err;
+        return err.response;
     });
 };
 

@@ -118,9 +118,8 @@ textarea{
 .validation_error {
     font-size: 12px;
     color: #c70000;
-}
-.hide.validation_error{
-    display:none;
+    padding-left: 20px;
+    margin-bottom: 0;
 }
 .popup{
     transform: translate3d(0, -100vh, 0);
@@ -328,7 +327,7 @@ textarea{
 }
 .back_to_register{
     width: 22px;
-    height: 22px;
+    min-height: 22px;
     border-radius: 50%;
     border: 1px solid #000000;
     margin: 39px 0 33px;
@@ -346,6 +345,9 @@ textarea{
     color: #121212;
     text-decoration: none solid rgb(18, 18, 18);
     margin-top: 20px;
+}
+.register_page label a{
+    color: #121212;
 }
 .register_page label input{
     width: 16px;
@@ -938,6 +940,7 @@ textarea{
 }
 .my_rides li .ride_block{
     max-width: 380px;
+    width: 100%;
     border-radius: 20px;
     background-color: #4d4d4d;
     box-shadow: 0 2px 7px rgba(0,0,0,0.7);
@@ -950,13 +953,18 @@ textarea{
     text-decoration: none solid rgb(245, 245, 245);
     margin: 0;
     white-space: pre-line;
+    min-height: 32px;
+    display: flex;
 }
 .ride_from_to p:first-child{
     margin-bottom: 20px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
 }
 .my_rides li .item-inner{
-    flex-direction:column;
-    align-items: flex-start;
+    /*flex-direction:column;*/
+    /*align-items: flex-start;*/
 }
 .ride_dates > div{
     flex-basis: 45%;
@@ -1050,7 +1058,7 @@ textarea{
 .ride_img_params p{
     margin: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 .ride_img_params p:last-child{
     margin-left: 20px;

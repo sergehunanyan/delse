@@ -9,11 +9,11 @@
     <form class="register_1_form">
 
         <Block class="login_button_block">
-            <Button href="/register2/" class="register_buttons" round>Физическое лицо</Button>
+            <Button on:click={() => toRegister(false)} class="register_buttons" round>Физическое лицо</Button>
         </Block>
 
         <Block class="login_button_block">
-            <Button href="/register2/" class="register_buttons" round>Юридическое лицо</Button>
+            <Button on:click={() => toRegister(true)} class="register_buttons" round>Юридическое лицо</Button>
         </Block>
 
     </form>
@@ -28,4 +28,10 @@
         Block,
         Input,
     } from 'framework7-svelte';
+
+    export let f7router;
+
+    function toRegister(status) {
+        f7router.navigate('/register2/', { context: { isOrganizationUser: status } } );
+    }
 </script>

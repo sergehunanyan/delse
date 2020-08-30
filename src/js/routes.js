@@ -3,6 +3,10 @@ import Login from '../pages/auth/login.svelte'
 import Forgot from '../pages/auth/forgot.svelte';
 import Register from '../pages/auth/register.svelte';
 import RegisterSecond from '../pages/auth/registerSecond.svelte';
+import UserPolicy from '../pages/auth/policy.svelte';
+import UserRules from '../pages/auth/rules.svelte';
+import OrganizationPolicy from '../pages/auth/organizationPolicy.svelte';
+import OrganizationRules from '../pages/auth/organizationRules.svelte';
 
 /* User */
 import User from '../pages/user/index.svelte';
@@ -51,6 +55,22 @@ let routes = [
   {
     path: '/forgot/',
     component: Forgot,
+  },
+  {
+    path: '/policy/',
+    component: UserPolicy,
+  },
+  {
+    path: '/rules/',
+    component: UserRules,
+  },
+  {
+    path: '/organization-policy/',
+    component: OrganizationPolicy,
+  },
+  {
+    path: '/organization-rules/',
+    component: OrganizationRules,
   },
 
 

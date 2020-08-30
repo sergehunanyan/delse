@@ -15,9 +15,9 @@
     </Block>
 
     <Block class="m-0">
-        <form class="add_form">
+        <form class="add_form" on:submit|preventDefault={addRide}>
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:" inputId="ride_from"/>
+                <Input type="text" placeholder="Откуда:" name="ride_from" inputId="ride_from" on:change={() => asd}/>
                 <Button fill popupOpen=".ride_from_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -37,7 +37,7 @@
             </Popup>
 
             <div class="ride_from">
-                <Input type="text" placeholder="Куда:" inputId="ride_to"/>
+                <Input type="text" placeholder="Куда:" inputId="ride_to" name="ride_to"/>
                 <Button fill popupOpen=".ride_to_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -59,7 +59,7 @@
             <div class="ride_dates">
                 <div>
                     <p>МОГУ ЗАБРАТЬ:</p>
-                    <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
+                    <Input type="datepicker" placeholder="dd.mm - dd.mm.yyyy" readonly calendarParams={{ dateFormat: 'yyyy-mm-dd', rangePicker: true }} />
                 </div>
                 <div>
                     <p>МОГУ ДОСТАВИТЬ:</p>
@@ -133,7 +133,7 @@
             </div>
 
             <Block class="login_button_block">
-                <Button href="/ride/" class="add_ride_button" round>Добавить поездку</Button>
+                <Button type="submit" class="add_ride_button" round>Добавить поездку</Button>
             </Block>
         </form>
     </Block>
@@ -144,21 +144,7 @@
 
 <script>
     import Navigation from '@/components/navigation.svelte'
-
-    import {
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
-        Input,
-        Popup,
-        Navbar,
-        NavRight,
-    } from 'framework7-svelte';
+    import {App, Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input, Popup, Navbar, NavRight,} from 'framework7-svelte';
 
     import newMap from '@/js/map'
 
@@ -169,5 +155,12 @@
 
     let popupOpened = false;
 
-
+    function addRide(event) {
+        const formData = new FormData(event.target);
+        const formRide = {}
+        for (const [k, v] of formData.entries()) {
+            formRide[k] = v
+        }
+        console.log(formRide)
+    }
 </script>

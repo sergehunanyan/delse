@@ -10,13 +10,14 @@
         <img src="./static/images/back.svg" alt="Back">
     </Link>
 
-    <form class="login_form">
-        <Input type="email" placeholder="Email"/>
+    <form class="login_form" on:submit|preventDefault={forgot}>
+        <Input type="email" placeholder="Email" name="email"/>
+
+        <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
-            <Button class="forgot_buttons" round>Отправить E-mail</Button>
+            <Button type="submit" class="forgot_buttons" round>Отправить E-mail</Button>
         </Block>
-
     </form>
 
 </Page>
@@ -29,4 +30,24 @@
         Block,
         Input,
     } from 'framework7-svelte';
+    import api from '@/js/api'
+
+    let errors = '';
+
+    function forgot(event) {
+        const formData = new FormData(event.target)
+        const formUser = {}
+        for (const [k, v] of formData.entries()) {
+            formUser[k] = v
+        }
+
+        api.post('users/api/mobile/Account/SendEmailPasswordRecovery', formUser)
+                .then((response) => {
+                    if(response.status === 404){
+                        errors = response.statusText;
+                    }else{
+                        errors = '';
+                    }
+                })
+    }
 </script>
