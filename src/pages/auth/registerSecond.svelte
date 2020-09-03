@@ -11,31 +11,35 @@
     </Link>
 
     <form class="register_form" on:submit|preventDefault={register}>
-        <Input type="email" placeholder="Email" name="email"/>
+        <input type="email" placeholder="Email" name="email" class="register_inputs"/>
 
-        <Input type="password" placeholder="Пароль" name="password"/>
+        <input type="password" placeholder="Пароль" name="password" bind:value={password} class="register_inputs"/>
 
-        <Input type="password" placeholder="Повторите пароль"/>
+        <input type="password" placeholder="Повторите пароль" bind:value={confirm_password} class="register_inputs"/>
+
+        <div class="validation_error">{errors}</div>
 
         {#if isOrganizationUser}
             <label for="user_rule">
-                <Input type="checkbox" id="user_rule"/> <Link href="/organization-rules/">Принимаю правила системы</Link>
+                <Input type="checkbox" id="user_rule" required/>
+                <Link href="/organization-rules/">Принимаю правила системы</Link>
             </label>
 
             <label for="user_policy">
-                <Input type="checkbox" id="user_policy"/> <Link href="/organization-policy/">Принимаю политику конфиденциальности</Link>
+                <Input type="checkbox" id="user_policy" required/>
+                <Link href="/organization-policy/">Принимаю политику конфиденциальности</Link>
             </label>
         {:else}
             <label for="user_rule">
-                <Input type="checkbox" id="user_rule"/> <Link href="/rules/">Принимаю правила системы</Link>
+                <Input type="checkbox" id="user_rule" required/>
+                <Link href="/rules/">Принимаю правила системы</Link>
             </label>
 
             <label for="user_policy">
-                <Input type="checkbox" id="user_policy"/> <Link href="/policy/">Принимаю политику конфиденциальности</Link>
+                <Input type="checkbox" id="user_policy" required/>
+                <Link href="/policy/">Принимаю политику конфиденциальности</Link>
             </label>
         {/if}
-
-        <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
             <Button class="login_button" type="submit" round>Зарегистрироваться</Button>
@@ -45,7 +49,7 @@
 </Page>
 
 <script>
-    import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
     import {
         Page,
         Link,
@@ -58,10 +62,16 @@
     export let f7router;
     export let f7route;
 
+    let password = '';
+    let confirm_password = '';
     let errors = '';
     let isOrganizationUser = null;
 
-    function register(event){
+    function register(event) {
+        if(password !== confirm_password){
+            errors = 'Password mismatch';
+            return;
+        }
         const formData = new FormData(event.target);
         const formUser = {}
         for (const [k, v] of formData.entries()) {
@@ -70,16 +80,15 @@
         formUser['isOrganizationUser'] = isOrganizationUser;
         formUser['defaultLanguage'] = 2;
         api.post('users/api/mobile/Account/register', formUser)
-            .then((response) => {
-                if(response.status === 400){
-                    errors = response.data.errors.Password[0];
-                }else{
-                    if(response != ''){
+                .then((response) => {
+                    console.log(response)
+                    if (response.status === 400) {
+                        errors = response.data.errors.Password[0];
+                    } else {
                         errors = '';
-                        f7router.navigate('/user/', { context: { user: response.userProfile } });
+                        f7router.navigate('/confirm/', {context: {user: formUser}});
                     }
-                }
-            })
+                })
     }
 
     onMount(() => {

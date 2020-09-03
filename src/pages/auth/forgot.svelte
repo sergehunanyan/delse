@@ -32,21 +32,23 @@
     } from 'framework7-svelte';
     import api from '@/js/api'
 
+    export let f7router;
     let errors = '';
 
     function forgot(event) {
         const formData = new FormData(event.target)
-        const formUser = {}
+        const email = {};
         for (const [k, v] of formData.entries()) {
-            formUser[k] = v
+            email[k] = v
         }
 
-        api.post('users/api/mobile/Account/SendEmailPasswordRecovery', formUser)
+        api.post('users/api/mobile/Account/SendEmailPasswordRecovery', email)
                 .then((response) => {
                     if(response.status === 404){
                         errors = response.statusText;
                     }else{
                         errors = '';
+                        f7router.navigate('/forgot-confirm/', { context: { email: email } });
                     }
                 })
     }

@@ -118,7 +118,6 @@ textarea{
 .validation_error {
     font-size: 12px;
     color: #c70000;
-    padding-left: 20px;
     margin-bottom: 0;
 }
 .popup{
@@ -352,6 +351,9 @@ textarea{
 .register_page label input{
     width: 16px;
 }
+.register_form .register_inputs{
+    margin-bottom: 30px;
+}
 
 @media all and (min-height: 650px) {
     .register_form > .input{
@@ -360,6 +362,50 @@ textarea{
     .register_form > .input:first-child{
         margin-bottom: 40px;
     }
+}
+
+/* Confirm */
+.confirm_email_text{
+    font-size: 16px;
+    line-height: 18px;
+    text-align:center;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+}
+.confirm_input_block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 286px;
+    margin: 0 auto;
+}
+.confirm_input_block span{
+    border-bottom: 1px solid #e6e3df;
+    width: 40px;
+    display: inline-block;
+}
+.confirm_input_block input, .confirm_input_block input:focus{
+    letter-spacing: 34px;
+    padding-left: 12px;
+    text-align: left;
+    flex-basis: 100%;
+    height: 40px;
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none solid rgb(0, 0, 0);
+    margin-bottom: 0 !important;
+}
+.send_again{
+    text-align:center;
+}
+.send_again a{
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    text-decoration: underline;
+    text-transform: inherit;
+    font-weight: normal;
 }
 
 /* User */
@@ -617,6 +663,9 @@ textarea{
 
 
 /* User rating page */
+.user_rating_block.last{
+    margin-bottom: 70px;
+}
 .user_rating_block h5{
     font-size: 16px;
     color: #000000;
@@ -1053,15 +1102,12 @@ textarea{
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 .ride_img_params p{
-    margin: 0;
+    margin: 0 0 10px;
     display: flex;
     align-items: center;
-}
-.ride_img_params p:last-child{
-    margin-left: 20px;
 }
 .ride_img_params p span{
     margin-right: 5px;
@@ -1081,12 +1127,17 @@ textarea{
     .my_rides .info p{
         font-size: 10px;
     }
+    .my_rides .bottom{
+        flex-direction:column;
+    }
     .my_rides .bottom .button {
-        max-width: 140px;
         font-size: 10px;
     }
     .ride_from_to p{
         font-size: 12px;
+    }
+    .my_rides .bottom p span{
+        margin-right: 5px;
     }
 }
 

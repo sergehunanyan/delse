@@ -45,7 +45,12 @@
                             </div>
                         </div>
                         <div class="info">
-                            <p><span>ТИП ГРУЗА: </span>{(FreightTypes.find(x => x.id === transportation.transportation.freightTypeId).name)}</p>
+                            <p>
+                                <span>ТИП ГРУЗА: </span>
+                                {#if FreightTypes.find(x => x.id === transportation.transportation.freightTypeId)}
+                                    {(FreightTypes.find(x => x.id === transportation.transportation.freightTypeId).name)}
+                                {/if}
+                            </p>
                             <Block class="ride_img_params">
                                 <p>
                                     <img src="./static/images/weight.svg" alt="Weight" width="20" height="22">
@@ -59,7 +64,12 @@
                                     / {transportation.transportation.freight.height} м
                                 </p>
                             </Block>
-                            <p><span>ТИП ТРАНСПОРТА: </span>{(TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId).name)}</p>
+                            <p>
+                                <span>ТИП ТРАНСПОРТА: </span>
+                                {#if TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId)}
+                                    {(TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId).name)}
+                                {/if}
+                            </p>
                         </div>
                         <div class="bottom">
                             <p><span>Всего заявок: </span>{transportation.offersCount}</p>

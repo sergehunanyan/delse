@@ -29,8 +29,10 @@
 </Page>
 
 <script>
+    import { onMount } from 'svelte';
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
+    import api from '@/js/api'
 
     import {
         Page,
@@ -38,4 +40,18 @@
         ListItem,
         Link
     } from 'framework7-svelte';
+
+    export let f7router;
+    export let f7route;
+
+    onMount(() => {
+        // if(f7route.context && f7route.context.user){
+        //     let formUser = {
+        //         email: f7route.context.user.email,
+        //         password: f7route.context.user.password
+        //     }
+        //     api.post('users/api/mobile/Account/Login', formUser)
+        //     console.log(f7route.context.user)
+        // }
+    });
 </script>

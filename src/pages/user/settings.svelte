@@ -19,7 +19,7 @@
         <ListItem>
             <Link href="/password/">Изменить пароль</Link>
         </ListItem>
-        <ListItem>Удалить аккаунт</ListItem>
+        <ListItem on:click={deleteAccount}>Удалить аккаунт</ListItem>
     </List>
 
     <Navigation/>
@@ -38,6 +38,13 @@
         Toggle,
         Link,
     } from 'framework7-svelte';
+    import api from '@/js/api'
 
     export let f7router;
+
+    function deleteAccount() {
+        f7router.navigate('/');
+        api.delete('users/api/mobile/Account/Delete');
+        localStorage.removeItem("token");
+    }
 </script>

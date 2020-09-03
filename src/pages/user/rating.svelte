@@ -5,23 +5,23 @@
     <ProfileHeading heading="Рейтинг" route={f7router}/>
 
     <Block class="user_rating_block">
-        <h5><u>Рейтинг заказчика:</u><span>4,2</span><Icon f7="star_fill" size="16px" color="black" /></h5>
-        <p>Отправлено посылок: <span>27</span></p>
+        <h5><u>Рейтинг заказчика:</u><span>{info.ordererRating}</span><Icon f7="star_fill" size="16px" color="black" /></h5>
+        <p>Отправлено посылок: <span>{info.publishedApplicationsCount}</span></p>
         <div class="watch_ratings">
             <p>Всего оценок: <span>15</span></p>
             <Link>Посмотреть оценки</Link>
         </div>
-        <p>Статус: <span>Профессионал</span></p>
+        <p>Статус: <span>{info.ordererLevelName}</span></p>
     </Block>
 
-    <Block class="user_rating_block">
-        <h5><u>Рейтинг перевозчика:</u><span>4,7</span><Icon f7="star_fill" size="16px" color="black" /></h5>
-        <p>Отправлено посылок: <span>7</span></p>
+    <Block class="user_rating_block last">
+        <h5><u>Рейтинг перевозчика:</u><span>{info.transporterRating}</span><Icon f7="star_fill" size="16px" color="black" /></h5>
+        <p>Доставлено посылок: <span>{info.completedOrdersCount}</span></p>
         <div class="watch_ratings">
             <p>Всего оценок: <span>7</span></p>
             <Link>Посмотреть оценки</Link>
         </div>
-        <p>Статус: <span>Новичок</span></p>
+        <p>Статус: <span>{info.transporterLevelName}</span></p>
     </Block>
 
     <Navigation/>
@@ -32,6 +32,7 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
+    import api from '@/js/api'
 
     import {
         Page,
@@ -41,4 +42,10 @@
     } from 'framework7-svelte';
 
     export let f7router;
+    let info = {};
+
+    api.get('users/api/mobile/Account/GetAccountInfo')
+            .then((response) => {
+                info = response
+            })
 </script>

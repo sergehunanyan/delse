@@ -1,8 +1,11 @@
 /* Auth */
 import Login from '../pages/auth/login.svelte'
 import Forgot from '../pages/auth/forgot.svelte';
+import ForgotConfirm from '../pages/auth/forgotConfirm.svelte';
+import ForgotPassword from '../pages/auth/password.svelte';
 import Register from '../pages/auth/register.svelte';
 import RegisterSecond from '../pages/auth/registerSecond.svelte';
+import Confirm from '../pages/auth/confirm.svelte';
 import UserPolicy from '../pages/auth/policy.svelte';
 import UserRules from '../pages/auth/rules.svelte';
 import OrganizationPolicy from '../pages/auth/organizationPolicy.svelte';
@@ -53,8 +56,20 @@ let routes = [
     component: RegisterSecond,
   },
   {
+    path: '/confirm/',
+    component: Confirm,
+  },
+  {
     path: '/forgot/',
     component: Forgot,
+  },
+  {
+    path: '/forgot-confirm/',
+    component: ForgotConfirm,
+  },
+  {
+    path: '/forgot-password/',
+    component: ForgotPassword,
   },
   {
     path: '/policy/',

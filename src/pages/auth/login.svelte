@@ -36,8 +36,8 @@
     } from 'framework7-svelte';
     import api from '@/js/api'
 
-    let errors = '';
     export let f7router;
+    let errors = '';
 
     function login(event) {
         const formData = new FormData(event.target)
