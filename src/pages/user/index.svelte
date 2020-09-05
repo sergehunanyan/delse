@@ -29,7 +29,6 @@
 </Page>
 
 <script>
-    import { onMount } from 'svelte';
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import api from '@/js/api'
@@ -44,14 +43,18 @@
     export let f7router;
     export let f7route;
 
-    onMount(() => {
-        // if(f7route.context && f7route.context.user){
-        //     let formUser = {
-        //         email: f7route.context.user.email,
-        //         password: f7route.context.user.password
-        //     }
-        //     api.post('users/api/mobile/Account/Login', formUser)
-        //     console.log(f7route.context.user)
-        // }
-    });
+    api.get('users/api/mobile/Account/GetAccountInfo')
+            .then((response) => {
+                if (response.status === 401) {
+                    api.get('users/api/Token/Refresh')
+                            .then((response) => {
+                                if (response.status === 200) {
+                                    localStorage.setItem("token", response.accessToken)
+                                    localStorage.setItem("refreshToken", response.refreshToken)
+                                } else {
+                                    f7router.navigate('/login/');
+                                }
+                            })
+                }
+            })
 </script>

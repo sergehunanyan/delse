@@ -13,7 +13,7 @@
             <span>Выбрать язык</span>
             <select name="language" id="language">
                 <option value="ru">Русский</option>
-                <option value="en">Английский</option>
+                <option value="en">English</option>
             </select>
         </ListItem>
         <ListItem>
@@ -43,8 +43,9 @@
     export let f7router;
 
     function deleteAccount() {
-        f7router.navigate('/');
-        api.delete('users/api/mobile/Account/Delete');
+        f7router.navigate('/login/');
+        api.del('users/api/mobile/Account/Delete');
         localStorage.removeItem("token");
+        localStorage.removeItem("refreshToken");
     }
 </script>

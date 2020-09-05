@@ -1,4 +1,5 @@
 /* Auth */
+import Loading from '../pages/auth/loading.svelte'
 import Login from '../pages/auth/login.svelte'
 import Forgot from '../pages/auth/forgot.svelte';
 import ForgotConfirm from '../pages/auth/forgotConfirm.svelte';
@@ -42,9 +43,13 @@ import Shipping from '../pages/package/shipping.svelte';
 
 let routes = [
 
+  {
+    path: '/loading/',
+    component: Loading,
+  },
   /* Auth */
   {
-    path: '/',
+    path: '/login/',
     component: Login,
   },
   {

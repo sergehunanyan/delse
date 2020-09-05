@@ -6,8 +6,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/" class="active">Мои заявки</a>
-            <a href="/search-bid/">Найти поездки</a>
+            <a href="/bid/" class="active">{lang('applications.my_requests')}</a>
+            <a href="/search-bid/">{lang('applications.search')}</a>
         </div>
 
         <div class="second_menu">
@@ -36,17 +36,17 @@
                     </div>
                     <div class="ride_dates">
                         <div>
-                            <p>НУЖНО ЗАБРАТЬ:</p>
+                            <p>{lang('applications.take')}:</p>
                             <p>17.07 - 20.07.2020</p>
                         </div>
                         <div>
-                            <p>НУЖНО ДОСТАВИТЬ:</p>
+                            <p>{lang('applications.delivery')}:</p>
                             <p>21.07.2020</p>
                         </div>
                     </div>
                     <div class="info">
                         <div class="add_bid_price">
-                            <label>Стоимость: <Input type="text" readonly value="20"/></label>
+                            <label>{lang('applications.price')}: <Input type="text" readonly value="20"/></label>
                             <select name="transport" disabled>
                                 <option value="0">BYN</option>
                                 <option value="1">USD</option>
@@ -58,13 +58,13 @@
                     <div class="bottom">
                         <Block class="ride_request_rating">
                             <div class="top">
-                                <span>Рейтинг: </span>
+                                <span>{lang('applications.rating')}: </span>
                                 <div class="rate">4,1</div>
                                 <Icon f7="star_fill" size="16px" color="black" />
                             </div>
                             <div class="status">Профессионал</div>
                         </Block>
-                        <Button round>Отправить предложение</Button>
+                        <Button round>{lang('applications.send_request')}</Button>
                     </div>
                 </div>
             </ListItem>
@@ -77,17 +77,8 @@
 
 <script>
     import Navigation from '@/components/navigation.svelte'
-
-    import {
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        Input,
-        List,
-        ListItem
-    } from 'framework7-svelte';
+    import {Page, Link, Block, Button, Icon, Input, List, ListItem} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 </script>

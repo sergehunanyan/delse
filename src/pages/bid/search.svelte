@@ -6,36 +6,36 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/">Мои заявки</a>
-            <a href="/search-bid/" class="active">Найти поездки</a>
+            <a href="/bid/">{lang('applications.my_requests')}</a>
+            <a href="/search-bid/" class="active">{lang('applications.search')}</a>
         </div>
     </Block>
 
     <Block class="m-0">
         <form class="add_form">
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:"/>
+                <Input type="text" placeholder="{lang('applications.from')}:"/>
                 <img src="./static/images/location.svg" alt="Location">
             </div>
 
             <div class="ride_from">
-                <Input type="text" placeholder="Куда:"/>
+                <Input type="text" placeholder="{lang('applications.to')}:"/>
                 <img src="./static/images/location.svg" alt="Location">
             </div>
 
             <div class="ride_dates">
                 <div>
-                    <p>НУЖНО ЗАБРАТЬ:</p>
+                    <p>{lang('applications.take')}:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
                 <div>
-                    <p>НУЖНО ДОСТАВИТЬ:</p>
+                    <p>{lang('applications.delivery')}:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
             </div>
 
             <select name="type">
-                <option value="0">Тип груза:</option>
+                <option value="0">{lang('applications.cargo_type')}:</option>
                 <option value="1">Бумаги/документы</option>
                 <option value="2">Мелкогабаритные</option>
                 <option value="3">Среднегабаритные</option>
@@ -47,14 +47,14 @@
             </select>
 
             <select name="payment">
-                <option value="0">Способ оплаты:</option>
+                <option value="0">{lang('applications.payment_type')}:</option>
                 <option value="1">Наличными</option>
                 <option value="2">Карта</option>
             </select>
 
             <div class="add_weight">
                 <div class="add_weight_block">
-                    <label for="ride_weight">Вес:<Input type="text" id="ride_weight"/></label>
+                    <label for="ride_weight">{lang('applications.weight')}:<Input type="text" id="ride_weight"/></label>
                     <select name="weight">
                         <option value="0">г</option>
                         <option value="1">кг</option>
@@ -63,8 +63,8 @@
                 </div>
 
                 <div class="add_weight_block">
-                    <label for="ride_size">Объём:<Input type="text" id="ride_size"/></label>
-                    <p>м3</p>
+                    <label for="ride_size">{lang('applications.volume')}:<Input type="text" id="ride_size"/></label>
+                    <p>{lang('applications.m3')}</p>
                 </div>
             </div>
 
@@ -74,17 +74,17 @@
                 <div class="add_sizes_middle">
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>длина</p>
+                        <p>{lang('applications.length')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>ширина</p>
+                        <p>{lang('applications.width')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>высота</p>
+                        <p>{lang('applications.height')}</p>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
             </div>
 
             <Block class="login_button_block">
-                <Button href="/bid-results/" class="add_ride_button" round>Найти поездки</Button>
+                <Button href="/bid-results/" class="add_ride_button" round>{lang('applications.search')}</Button>
             </Block>
         </form>
     </Block>
@@ -106,18 +106,8 @@
 
 <script>
     import Navigation from '@/components/navigation.svelte'
-
-    import {
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
-        Input,
-    } from 'framework7-svelte';
+    import {Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input} from 'framework7-svelte';
+    import {lang} from '@/js/api'
 
     export let f7router;
 </script>

@@ -6,8 +6,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/">Мои заявки</a>
-            <a href="/search-bid/" class="active">Найти поездки</a>
+            <a href="/bid/">{lang('applications.my_requests')}</a>
+            <a href="/search-bid/" class="active">{lang('applications.search')}</a>
         </div>
 
         <div class="second_menu">
@@ -36,34 +36,38 @@
                     </div>
                     <div class="ride_dates">
                         <div>
-                            <p>МОГУ ЗАБРАТЬ:</p>
+                            <p>{lang('applications.can_take')}:</p>
                             <p>17.07 - 20.07.2020</p>
                         </div>
                         <div>
-                            <p>МОГУ ДОСТАВИТЬ:</p>
+                            <p>{lang('applications.can_deliver')}:</p>
                             <p>21.07.2020</p>
                         </div>
                     </div>
                     <div class="info">
-                        <p><span>ТИП ГРУЗА: </span>Мелкогабаритные грузы</p>
+                        <p><span>{lang('applications.cargo_type')}: </span>Мелкогабаритные грузы</p>
                         <Block class="ride_img_params">
-                            <p><img src="./static/images/weight.svg" alt="Weight" width="20"
-                                    height="22"><span>ВЕС: </span>10 кг</p>
-                            <p><img src="./static/images/sizes.svg" alt="Weight" width="19"
-                                    height="20"><span>ГАБАРИТЫ: </span>1 / 1 / 1,5 м</p>
+                            <p>
+                                <img src="./static/images/weight.svg" alt="Weight" width="20" height="22">
+                                <span>{lang('applications.weight')}: </span>10 кг
+                            </p>
+                            <p>
+                                <img src="./static/images/sizes.svg" alt="Weight" width="19" height="20">
+                                <span>{lang('applications.dimensions')}: </span>1 / 1 / 1,5 м
+                            </p>
                         </Block>
-                        <p><span>ТИП ТРАНСПОРТА: </span>Поезд</p>
+                        <p><span>{lang('applications.transport_type')}: </span>Поезд</p>
                     </div>
                     <div class="bottom">
                         <Block class="ride_request_rating">
                             <div class="top">
-                                <span>Рейтинг: </span>
+                                <span>{lang('applications.rating')}: </span>
                                 <div class="rate">4,1</div>
                                 <Icon f7="star_fill" size="16px" color="black" />
                             </div>
                             <div class="status">Профессионал</div>
                         </Block>
-                        <Button round>Оставить заявку</Button>
+                        <Button round>{lang('applications.submit_application')}</Button>
                     </div>
                 </div>
             </ListItem>
@@ -76,19 +80,8 @@
 
 <script>
     import Navigation from '@/components/navigation.svelte'
-
-    import {
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
-        Tabs,
-        Tab
-    } from 'framework7-svelte';
+    import {Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Tabs, Tab} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 </script>

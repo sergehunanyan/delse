@@ -131,7 +131,7 @@
         </List>
 
         <div class="user_more_logout">
-            <Button>Выйти</Button>
+            <Button href="/login/" on:click={logout}>Выйти</Button>
         </div>
     </div>
 </div>
@@ -154,5 +154,11 @@
 
     function toggleHeader() {
         status = !status;
+    }
+
+    function logout() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("refreshToken");
+        window.location.href = '';
     }
 </script>

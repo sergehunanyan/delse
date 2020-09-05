@@ -9,15 +9,15 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/" class="active">Мои поездки</a>
-            <a href="/search-ride/">Найти заявки</a>
+            <a href="/ride/" class="active">{lang('transportation.transportation')}</a>
+            <a href="/search-ride/">{lang('transportation.search')}</a>
         </div>
     </Block>
 
     <Block class="m-0">
         <form class="add_form" on:submit|preventDefault={addRide}>
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:" name="ride_from" inputId="ride_from" on:change={() => asd}/>
+                <Input type="text" placeholder="{lang('transportation.from')}:" name="ride_from" inputId="ride_from" on:change={() => asd}/>
                 <Button fill popupOpen=".ride_from_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -27,7 +27,7 @@
                 <Page>
                     <Navbar>
                         <NavRight>
-                            <Link popupClose>Закрыть</Link>
+                            <Link popupClose>{lang('transportation.close')}</Link>
                         </NavRight>
                     </Navbar>
                     <Block style="height:100%;margin:0;padding:0;">
@@ -37,7 +37,7 @@
             </Popup>
 
             <div class="ride_from">
-                <Input type="text" placeholder="Куда:" inputId="ride_to" name="ride_to"/>
+                <Input type="text" placeholder="{lang('transportation.to')}:" inputId="ride_to" name="ride_to"/>
                 <Button fill popupOpen=".ride_to_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -47,7 +47,7 @@
                 <Page>
                     <Navbar>
                         <NavRight>
-                            <Link popupClose>Закрыть</Link>
+                            <Link popupClose>{lang('transportation.close')}</Link>
                         </NavRight>
                     </Navbar>
                     <Block style="height:100%;margin:0;padding:0;">
@@ -58,17 +58,17 @@
 
             <div class="ride_dates">
                 <div>
-                    <p>МОГУ ЗАБРАТЬ:</p>
+                    <p>{lang('transportation.can_take')}:</p>
                     <Input type="datepicker" placeholder="dd.mm - dd.mm.yyyy" readonly calendarParams={{ dateFormat: 'yyyy-mm-dd', rangePicker: true }} />
                 </div>
                 <div>
-                    <p>МОГУ ДОСТАВИТЬ:</p>
+                    <p>{lang('transportation.can_deliver')}:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
             </div>
 
             <select name="type">
-                <option value="0">Тип груза:</option>
+                <option value="0">{lang('transportation.cargo_type')}:</option>
                 <option value="1">Бумаги/документы</option>
                 <option value="2">Мелкогабаритные</option>
                 <option value="3">Среднегабаритные</option>
@@ -80,7 +80,7 @@
             </select>
 
             <select name="transport">
-                <option value="0">Тип транспорта:</option>
+                <option value="0">{lang('transportation.transport_type')}:</option>
                 <option value="1">Вело/Мото</option>
                 <option value="2">Поезд</option>
                 <option value="3">Легковой автомобиль</option>
@@ -92,7 +92,7 @@
 
             <div class="add_weight">
                 <div class="add_weight_block">
-                    <label for="ride_weight">Вес:<Input type="text" id="ride_weight"/></label>
+                    <label for="ride_weight">{lang('transportation.weight')}:<Input type="text" id="ride_weight"/></label>
                     <select name="weight">
                         <option value="0">г</option>
                         <option value="1">кг</option>
@@ -101,8 +101,8 @@
                 </div>
 
                 <div class="add_weight_block">
-                    <label for="ride_size">Объём:<Input type="text" id="ride_size"/></label>
-                    <p>м3</p>
+                    <label for="ride_size">{lang('transportation.volume')}:<Input type="text" id="ride_size"/></label>
+                    <p>{lang('transportation.m3')}</p>
                 </div>
             </div>
 
@@ -112,17 +112,17 @@
                 <div class="add_sizes_middle">
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>длина</p>
+                        <p>{lang('transportation.length')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>ширина</p>
+                        <p>{lang('transportation.width')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>высота</p>
+                        <p>{lang('transportation.height')}</p>
                     </div>
                 </div>
 
@@ -133,7 +133,7 @@
             </div>
 
             <Block class="login_button_block">
-                <Button type="submit" class="add_ride_button" round>Добавить поездку</Button>
+                <Button type="submit" class="add_ride_button" round>{lang('transportation.add')}</Button>
             </Block>
         </form>
     </Block>
@@ -144,15 +144,14 @@
 
 <script>
     import Navigation from '@/components/navigation.svelte'
-    import {App, Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input, Popup, Navbar, NavRight,} from 'framework7-svelte';
-
+    import {App, Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input, Popup, Navbar, NavRight} from 'framework7-svelte';
     import newMap from '@/js/map'
+    import {api, lang} from '@/js/api'
 
     newMap('ride_from', 'ride_from_map');
     newMap('ride_to', 'ride_to_map');
 
     export let f7router;
-
     let popupOpened = false;
 
     function addRide(event) {

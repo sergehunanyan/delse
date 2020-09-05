@@ -7,8 +7,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/" class="active">Мои заявки</a>
-            <a href="/search-bid/">Найти поездки</a>
+            <a href="/bid/" class="active">{lang('applications.my_requests')}</a>
+            <a href="/search-bid/">{lang('applications.search')}</a>
         </div>
 
         <div class="second_menu">
@@ -21,52 +21,6 @@
     <Block class="m-0">
         <List class="my_rides">
             {#each bids as bid}
-<!--                <ListItem>-->
-<!--                    <div class="ride_block">-->
-<!--                        <div class="ride_from_to_block">-->
-<!--                            <div class="from_to_animation">-->
-<!--                                <div class="animation_element"></div>-->
-<!--                                <div class="a"></div>-->
-<!--                                <div class="b"></div>-->
-<!--                            </div>-->
-<!--                            <div class="ride_from_to">-->
-<!--                                <p>{transportation.place.placeFrom}</p>-->
-<!--                                <p>{transportation.place.placeTo}</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="ride_dates">-->
-<!--                            <div>-->
-<!--                                <p>МОГУ ЗАБРАТЬ:</p>-->
-<!--                                <p>17.07 - 20.07.2020</p>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <p>МОГУ ДОСТАВИТЬ:</p>-->
-<!--                                <p>21.07.2020</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="info">-->
-<!--                            <p><span>ТИП ГРУЗА: </span>{(FreightTypes.find(x => x.id === transportation.transportation.freightTypeId).name)}</p>-->
-<!--                            <Block class="ride_img_params">-->
-<!--                                <p>-->
-<!--                                    <img src="./static/images/weight.svg" alt="Weight" width="20" height="22">-->
-<!--                                    <span>ВЕС: </span>{transportation.transportation.freight.weight}-->
-<!--                                    кг-->
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    <img src="./static/images/sizes.svg" alt="Weight" width="19" height="20">-->
-<!--                                    <span>ГАБАРИТЫ: </span>{transportation.transportation.freight.length}-->
-<!--                                    / {transportation.transportation.freight.width}-->
-<!--                                    / {transportation.transportation.freight.height} м-->
-<!--                                </p>-->
-<!--                            </Block>-->
-<!--                            <p><span>ТИП ТРАНСПОРТА: </span>{(TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId).name)}</p>-->
-<!--                        </div>-->
-<!--                        <div class="bottom">-->
-<!--                            <p><span>Всего заявок: </span>{transportation.offersCount}</p>-->
-<!--                            <Button href="/ride-requests/" round>Посмотреть заявки</Button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </ListItem>-->
                 <ListItem>
                     <div class="ride_block">
                         <div class="ride_from_to_block">
@@ -82,16 +36,16 @@
                         </div>
                         <div class="ride_dates">
                             <div>
-                                <p>НУЖНО ЗАБРАТЬ:</p>
+                                <p>{lang('applications.take')}:</p>
                                 <p>17.07 - 20.07.2020</p>
                             </div>
                             <div>
-                                <p>НУЖНО ДОСТАВИТЬ:</p>
+                                <p>{lang('applications.delivery')}:</p>
                                 <p>21.07.2020</p>
                             </div>
                         </div>
                         <div class="info">
-                            <p><span>НАИМЕНОВАНИЕ: </span>{ bid.application.name }</p>
+                            <p><span>{lang('applications.name')}: </span>{ bid.application.name }</p>
                             <p>
                                 <span>ТИП ГРУЗА: </span>
                                 {#if FreightTypes.find(x => x.id === bid.application.freightTypeId)}
@@ -99,26 +53,32 @@
                                 {/if}
                             </p>
                             <Block class="ride_img_params">
-                                <p><img src="./static/images/weight.svg" alt="Weight" width="20"
-                                        height="22"><span>ВЕС: </span>{ bid.application.freight.weight} кг</p>
-                                <p><img src="./static/images/sizes.svg" alt="Weight" width="19"
-                                        height="20"><span>ГАБАРИТЫ: </span>{bid.application.freight.length}
+                                <p>
+                                    <img src="./static/images/weight.svg" alt="Weight" width="20" height="22">
+                                    <span>{lang('applications.weight')}: </span>
+                                    { bid.application.freight.weight} кг
+                                </p>
+                                <p>
+                                    <img src="./static/images/sizes.svg" alt="Weight" width="19" height="20">
+                                    <span>{lang('applications.dimensions')}: </span>
+                                    {bid.application.freight.length}
                                     / {bid.application.freight.width}
-                                    / {bid.application.freight.height} м</p>
+                                    / {bid.application.freight.height} м
+                                </p>
                             </Block>
-                            <p><span>СПОСОБ ОПЛАТЫ: </span>1111 XXXX XXXX 4444 <img src="./static/images/visa.svg" alt="VISA" width="19" height="20"></p>
+                            <p><span>{lang('applications.payment_type')}: </span>1111 XXXX XXXX 4444 <img src="./static/images/visa.svg" alt="VISA" width="19" height="20"></p>
                             <div class="ride_extra_info">{ bid.additionalInfo }</div>
                             <div class="info_image">
                                 <img src="./static/images/photo.svg" alt="Weight" width="20" height="22">
-                                <span>Посмотреть фото</span>
+                                <span>{lang('applications.watch_photo')}</span>
                                 <div class="full_image" style="background-image: url(./static/images/example.png)">
                                     <div class="close">X</div>
                                 </div>
                             </div>
                         </div>
                         <div class="bottom">
-                            <p><span>Всего предложений: </span>{ bid.offersCount }</p>
-                            <Button href="/bid-requests/" round>Посмотреть предложения</Button>
+                            <p><span>{lang('applications.offers')}: </span>{ bid.offersCount }</p>
+                            <Button href="/bid-requests/" round>{lang('applications.watch_offers')}</Button>
                         </div>
                     </div>
                 </ListItem>
@@ -144,7 +104,7 @@
         List,
         ListItem
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {api, lang} from '@/js/api'
 
     let bids = [];
     let FreightTypes = [];
@@ -163,10 +123,6 @@
                 })
         f7.preloader.hide()
     }
-    // api.get('filemanager/api/FileManager/id?id=1')
-    //         .then((response) => {
-    //             console.log(response)
-    //         })
 
     getFreightTypes()
 

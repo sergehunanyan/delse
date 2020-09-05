@@ -124,6 +124,16 @@ textarea{
     transform: translate3d(0, -100vh, 0);
 }
 
+/* Loading */
+.loading {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.loading .logo{
+    margin-top: 0;
+}
+
 /* profile heading */
 .profile_heading{
     margin: 28px 17px;
@@ -1011,9 +1021,11 @@ textarea{
     display: flex;
     align-items: center;
 }
-.my_rides li .item-inner{
-    /*flex-direction:column;*/
-    /*align-items: flex-start;*/
+.rides_column.my_rides li .item-inner{
+    flex-direction:column;
+}
+.rides_column.my_rides li .ride_block{
+    width: auto;
 }
 .ride_dates > div{
     flex-basis: 45%;
@@ -1078,6 +1090,7 @@ textarea{
     line-height: 20px;
     color: #ffba2b;
     text-decoration: none solid rgb(255, 186, 43);
+    word-break: break-word;
 }
 .my_rides .bottom p span {
     font-size: 12px;
@@ -1138,6 +1151,9 @@ textarea{
     }
     .my_rides .bottom p span{
         margin-right: 5px;
+    }
+    .bottom .ride_request_rating{
+        margin-bottom: 10px;
     }
 }
 
@@ -1523,8 +1539,14 @@ textarea{
     border-radius: 20px;
     background-color: #333333;
     box-shadow: 0 1px 7px rgba(0,0,0,0.7);
-    margin-top: 10px;
+    margin: 10px auto;
     padding: 10px;
+}
+.my_packages.my_rides li .ride_block {
+    width: auto;
+}
+.my_packages.my_rides .bottom p{
+    flex-direction:column;
 }
 .package_page .my_rides li .item-inner{
     display:block;

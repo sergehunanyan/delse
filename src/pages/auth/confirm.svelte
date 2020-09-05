@@ -10,7 +10,7 @@
         <img src="./static/images/back.svg" alt="Back">
     </Link>
 
-    <p class="confirm_email_text">Введите проверочный код</p>
+    <p class="confirm_email_text">{lang('auth.enter_code')}</p>
 
     <form id="confirm_form" class="login_form" on:submit|preventDefault={confirm}>
         <div class="confirm_input_block">
@@ -23,15 +23,15 @@
             <span></span>
         </div>
 
-        <div class="validation_error">{errors}</div>
+        <div class="validation_error text-align-center margin-top">{errors}</div>
 
         <Block class="login_button_block">
-            <Button id="confirm_btn" type="submit" class="forgot_buttons" round>Далее</Button>
+            <Button id="confirm_btn" type="submit" class="forgot_buttons" round>{lang('auth.next')}</Button>
         </Block>
     </form>
 
     <Block class="send_again">
-        <Button on:click={sendAgain}>Отправить код повторно</Button>
+        <Button on:click={sendAgain}>{lang('auth.send_again')}</Button>
     </Block>
 
 </Page>
@@ -44,7 +44,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {lang, api} from '@/js/api'
 
     export let f7router;
     export let f7route;
@@ -69,12 +69,12 @@
                 .then((response) => {
                     if(response.status === 400){
                         code = '';
-                        errors = 'Wrong code';
+                        errors = lang('auth.wrong_code');
                     }else{
                         errors = '';
                         api.post('users/api/mobile/Account/VerifyViaEmail', formUser).then((response) => {
                             if(response.status === 400){
-                                errors = 'Wrong code';
+                                errors = lang('auth.wrong_code');
                             }else{
                                 errors = '';
                                 delete f7route.context.user.isOrganizationUser;
@@ -86,6 +86,7 @@
                                             }else{
                                                 errors = '';
                                                 localStorage.setItem("token", response.accessToken)
+                                                localStorage.setItem("refreshToken", response.refreshToken)
                                                 f7router.navigate('/user/', { context: { user: response.userProfile } });
                                             }
                                         })

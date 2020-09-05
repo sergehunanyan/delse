@@ -6,15 +6,15 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/bid/" class="active">Мои заявки</a>
-            <a href="/search-bid/">Найти поездки</a>
+            <a href="/bid/" class="active">{lang('applications.my_requests')}</a>
+            <a href="/search-bid/">{lang('applications.search')}</a>
         </div>
     </Block>
 
     <Block class="m-0">
         <form class="add_form">
             <div class="ride_from">
-                <Input type="text" placeholder="Откуда:" inputId="bid_from"/>
+                <Input type="text" placeholder="{lang('applications.from')}:" inputId="bid_from"/>
                 <Button fill popupOpen=".bid_from_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -24,7 +24,7 @@
                 <Page>
                     <Navbar>
                         <NavRight>
-                            <Link popupClose>Закрыть</Link>
+                            <Link popupClose>{lang('applications.close')}</Link>
                         </NavRight>
                     </Navbar>
                     <Block style="height:100%;margin:0;padding:0;">
@@ -34,7 +34,7 @@
             </Popup>
 
             <div class="ride_from">
-                <Input type="text" placeholder="Куда:" inputId="bid_to"/>
+                <Input type="text" placeholder="{lang('applications.to')}:" inputId="bid_to"/>
                 <Button fill popupOpen=".bid_to_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -44,7 +44,7 @@
                 <Page>
                     <Navbar>
                         <NavRight>
-                            <Link popupClose>Закрыть</Link>
+                            <Link popupClose>{lang('applications.close')}</Link>
                         </NavRight>
                     </Navbar>
                     <Block style="height:100%;margin:0;padding:0;">
@@ -55,17 +55,17 @@
 
             <div class="ride_dates">
                 <div>
-                    <p>НУЖНО ЗАБРАТЬ:</p>
+                    <p>{lang('applications.take')}:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
                 <div>
-                    <p>НУЖНО ДОСТАВИТЬ:</p>
+                    <p>{lang('applications.delivery')}:</p>
                     <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
                 </div>
             </div>
 
             <select name="type">
-                <option value="0">Тип груза:</option>
+                <option value="0">{lang('applications.cargo_type')}:</option>
                 <option value="1">Бумаги/документы</option>
                 <option value="2">Мелкогабаритные</option>
                 <option value="3">Среднегабаритные</option>
@@ -77,7 +77,7 @@
             </select>
 
             <select name="transport">
-                <option value="0">Тип транспорта:</option>
+                <option value="0">{lang('applications.transport_type')}:</option>
                 <option value="1">Вело/Мото</option>
                 <option value="2">Поезд</option>
                 <option value="3">Легковой автомобиль</option>
@@ -89,7 +89,7 @@
 
             <div class="add_weight">
                 <div class="add_weight_block">
-                    <label for="ride_weight">Вес:<Input type="text" id="ride_weight"/></label>
+                    <label for="ride_weight">{lang('applications.weight')}:<Input type="text" id="ride_weight"/></label>
                     <select name="weight">
                         <option value="0">г</option>
                         <option value="1">кг</option>
@@ -98,8 +98,8 @@
                 </div>
 
                 <div class="add_weight_block">
-                    <label for="ride_size">Объём:<Input type="text" id="ride_size"/></label>
-                    <p>м3</p>
+                    <label for="ride_size">{lang('applications.volume')}:<Input type="text" id="ride_size"/></label>
+                    <p>{lang('applications.m3')}</p>
                 </div>
             </div>
 
@@ -109,17 +109,17 @@
                 <div class="add_sizes_middle">
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>длина</p>
+                        <p>{lang('applications.length')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>ширина</p>
+                        <p>{lang('applications.width')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
                         <Input type="text"/>
-                        <p>высота</p>
+                        <p>{lang('applications.height')}</p>
                     </div>
                 </div>
 
@@ -130,14 +130,14 @@
 
             </div>
 
-            <textarea name="extra_info" class="extra_info" placeholder="Дополнительная информация о гррузе, особенностях упаковки и деталях доставки"></textarea>
+            <textarea name="extra_info" class="extra_info" placeholder="{lang('applications.extra_info')}"></textarea>
 
             <div class="add_bid_bottom">
                 <select name="payment_type">
-                    <option value="0">Способ оплаты:</option>
+                    <option value="0">{lang('applications.payment_type')}:</option>
                     <option value="1">3333 XXXX XXXX 4444</option>
-                    <option value="1">5555 XXXX XXXX 6666</option>
-                    <option value="1">Наличные</option>
+                    <option value="2">5555 XXXX XXXX 6666</option>
+                    <option value="3">Наличные</option>
                 </select>
 
                 <label>
@@ -145,13 +145,13 @@
                         <span></span>
                         <span></span>
                     </div>
-                    Добавить фото
+                    {lang('applications.add_photo')}
                     <Input type="file" class="file_input"/>
                 </label>
             </div>
 
             <Block class="login_button_block">
-                <Button href="/ride/" class="add_ride_button" round>Добавить поездку</Button>
+                <Button href="/ride/" class="add_ride_button" round>{lang('applications.add')}</Button>
             </Block>
         </form>
     </Block>
@@ -161,21 +161,9 @@
 </Page>
 
 <script>
-    import {
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
-        Input,
-        Popup,
-        Navbar,
-        NavRight,
-    } from 'framework7-svelte';
+    import {Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input, Popup, Navbar, NavRight} from 'framework7-svelte';
     import Navigation from '@/components/navigation.svelte'
+    import {lang} from '@/js/api'
     import newMap from '@/js/map'
 
     newMap('bid_from', 'bid_from_map');

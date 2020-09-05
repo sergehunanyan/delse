@@ -11,12 +11,12 @@
     </Link>
 
     <form class="login_form" on:submit|preventDefault={forgot}>
-        <Input type="email" placeholder="Email" name="email"/>
+        <Input type="email" placeholder="{lang('auth.email')}" name="email"/>
 
         <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
-            <Button type="submit" class="forgot_buttons" round>Отправить E-mail</Button>
+            <Button type="submit" class="forgot_buttons" round>{lang('auth.send_email')}</Button>
         </Block>
     </form>
 
@@ -30,7 +30,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {lang, api} from '@/js/api'
 
     export let f7router;
     let errors = '';

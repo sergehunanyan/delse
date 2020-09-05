@@ -11,38 +11,38 @@
     </Link>
 
     <form class="register_form" on:submit|preventDefault={register}>
-        <input type="email" placeholder="Email" name="email" class="register_inputs"/>
+        <input type="email" placeholder="{lang('auth.email')}" name="email" class="register_inputs"/>
 
-        <input type="password" placeholder="Пароль" name="password" bind:value={password} class="register_inputs"/>
+        <input type="password" placeholder="{lang('auth.password')}" name="password" bind:value={password} class="register_inputs"/>
 
-        <input type="password" placeholder="Повторите пароль" bind:value={confirm_password} class="register_inputs"/>
+        <input type="password" placeholder="{lang('auth.password_confirmation')}" bind:value={confirm_password} class="register_inputs"/>
 
         <div class="validation_error">{errors}</div>
 
         {#if isOrganizationUser}
             <label for="user_rule">
                 <Input type="checkbox" id="user_rule" required/>
-                <Link href="/organization-rules/">Принимаю правила системы</Link>
+                <Link href="/organization-rules/">{lang('auth.rules')}</Link>
             </label>
 
             <label for="user_policy">
                 <Input type="checkbox" id="user_policy" required/>
-                <Link href="/organization-policy/">Принимаю политику конфиденциальности</Link>
+                <Link href="/organization-policy/">{lang('auth.policy')}</Link>
             </label>
         {:else}
             <label for="user_rule">
                 <Input type="checkbox" id="user_rule" required/>
-                <Link href="/rules/">Принимаю правила системы</Link>
+                <Link href="/rules/">{lang('auth.rules')}</Link>
             </label>
 
             <label for="user_policy">
                 <Input type="checkbox" id="user_policy" required/>
-                <Link href="/policy/">Принимаю политику конфиденциальности</Link>
+                <Link href="/policy/">{lang('auth.policy')}</Link>
             </label>
         {/if}
 
         <Block class="login_button_block">
-            <Button class="login_button" type="submit" round>Зарегистрироваться</Button>
+            <Button class="login_button" type="submit" round>{lang('auth.register')}</Button>
         </Block>
     </form>
 
@@ -57,7 +57,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {lang, api} from '@/js/api'
 
     export let f7router;
     export let f7route;

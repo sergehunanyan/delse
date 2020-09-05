@@ -9,11 +9,11 @@
     <form class="register_1_form">
 
         <Block class="login_button_block">
-            <Button on:click={() => toRegister(false)} class="register_buttons" round>Физическое лицо</Button>
+            <Button on:click={() => toRegister(false)} class="register_buttons" round>{lang('auth.individual')}</Button>
         </Block>
 
         <Block class="login_button_block">
-            <Button on:click={() => toRegister(true)} class="register_buttons" round>Юридическое лицо</Button>
+            <Button on:click={() => toRegister(true)} class="register_buttons" round>{lang('auth.organisation')}</Button>
         </Block>
 
     </form>
@@ -28,6 +28,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
+    import {lang} from '@/js/api'
 
     export let f7router;
 

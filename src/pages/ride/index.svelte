@@ -7,8 +7,8 @@
         </Link>
 
         <div class="header_navigation">
-            <a href="/ride/" class="active">Мои поездки</a>
-            <a href="/search-ride/">Найти заявки</a>
+            <a href="/ride/" class="active">{lang('transportation.transportation')}</a>
+            <a href="/search-ride/">{lang('transportation.search')}</a>
         </div>
 
         <div class="second_menu">
@@ -36,17 +36,17 @@
                         </div>
                         <div class="ride_dates">
                             <div>
-                                <p>МОГУ ЗАБРАТЬ:</p>
+                                <p>{lang('transportation.can_take')}:</p>
                                 <p>17.07 - 20.07.2020</p>
                             </div>
                             <div>
-                                <p>МОГУ ДОСТАВИТЬ:</p>
+                                <p>{lang('transportation.can_deliver')}:</p>
                                 <p>21.07.2020</p>
                             </div>
                         </div>
                         <div class="info">
                             <p>
-                                <span>ТИП ГРУЗА: </span>
+                                <span>{lang('transportation.cargo_type')}: </span>
                                 {#if FreightTypes.find(x => x.id === transportation.transportation.freightTypeId)}
                                     {(FreightTypes.find(x => x.id === transportation.transportation.freightTypeId).name)}
                                 {/if}
@@ -54,26 +54,26 @@
                             <Block class="ride_img_params">
                                 <p>
                                     <img src="./static/images/weight.svg" alt="Weight" width="20" height="22">
-                                    <span>ВЕС: </span>{transportation.transportation.freight.weight}
+                                    <span>{lang('transportation.weight')}: </span>{transportation.transportation.freight.weight}
                                     кг
                                 </p>
                                 <p>
                                     <img src="./static/images/sizes.svg" alt="Weight" width="19" height="20">
-                                    <span>ГАБАРИТЫ: </span>{transportation.transportation.freight.length}
+                                    <span>{lang('transportation.dimensions')}: </span>{transportation.transportation.freight.length}
                                     / {transportation.transportation.freight.width}
                                     / {transportation.transportation.freight.height} м
                                 </p>
                             </Block>
                             <p>
-                                <span>ТИП ТРАНСПОРТА: </span>
+                                <span>{lang('transportation.transport_type')}: </span>
                                 {#if TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId)}
                                     {(TransportTypes.find(x => x.id === transportation.transportation.serviceTypeId).name)}
                                 {/if}
                             </p>
                         </div>
                         <div class="bottom">
-                            <p><span>Всего заявок: </span>{transportation.offersCount}</p>
-                            <Button href="/ride-requests/" round>Посмотреть заявки</Button>
+                            <p><span>{lang('transportation.offers')}: </span>{transportation.offersCount}</p>
+                            <Button href="/ride-requests/" round>{lang('transportation.watch_offers')}</Button>
                         </div>
                     </div>
                 </ListItem>
@@ -88,21 +88,8 @@
 <script>
     import {onMount} from 'svelte';
     import Navigation from '@/components/navigation.svelte'
-    import {
-        f7,
-        Preloader,
-        Page,
-        Link,
-        Block,
-        Button,
-        Icon,
-        List,
-        ListItem,
-        Toolbar,
-        Tabs,
-        Tab
-    } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {f7, Preloader, Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Tabs, Tab} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     let transportations = [];
     let TransportTypes = [];

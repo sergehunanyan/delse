@@ -7,19 +7,19 @@
     </Link>
 
     <form class="login_form" on:submit|preventDefault={login}>
-        <Input type="password" name="password" placeholder="Введите новый пароль"/>
+        <Input type="password" name="password" placeholder="{lang('auth.new_password')}"/>
 
-        <Input type="password" name="password_confirmation" placeholder="Повторите пароль"/>
+        <Input type="password" name="password_confirmation" placeholder="{lang('auth.password_confirmation')}"/>
 
         <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
-            <Button type="submit" class="login_button" round>Войти</Button>
+            <Button type="submit" class="login_button" round>{lang('auth.login')}</Button>
         </Block>
     </form>
 
     <Block class="login_button_block">
-        <Button class="to_register" type="submit">Готово</Button>
+        <Button class="to_register" type="submit">{lang('auth.ready')}</Button>
     </Block>
 
 </Page>
@@ -32,7 +32,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {lang, api} from '@/js/api'
 
     export let f7router;
     export let f7route;
@@ -52,7 +52,7 @@
 
         api.post('users/api/mobile/Account/RecoverPasswordViaEmail', new_arr).then((response) => {
             if(response.status === 400){
-                errors = 'Wrong code';
+                errors = lang('auth.wrong_code');
             }else{
                 errors = '';
                 delete new_arr.code;
@@ -65,6 +65,7 @@
                             }else{
                                 errors = '';
                                 localStorage.setItem("token", response.accessToken)
+                                localStorage.setItem("refreshToken", response.refreshToken)
                                 f7router.navigate('/user/', { context: { user: response.userProfile } });
                             }
                         })

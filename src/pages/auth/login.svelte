@@ -7,21 +7,21 @@
     </Link>
 
     <form class="login_form" on:submit|preventDefault={login}>
-        <Input type="email" name="email" placeholder="Email"/>
+        <Input type="email" name="email" placeholder="{lang('auth.email')}"/>
 
-        <Input type="password" name="password" placeholder="Пароль"/>
+        <Input type="password" name="password" placeholder="{lang('auth.password')}"/>
 
-        <Link class="to_forgot" href="/forgot/">Забыли пароль?</Link>
+        <Link class="to_forgot" href="/forgot/">{lang('auth.forgot')}</Link>
 
         <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
-            <Button type="submit" class="login_button" round>Войти</Button>
+            <Button type="submit" class="login_button" round>{lang('auth.login')}</Button>
         </Block>
     </form>
 
     <Block class="login_button_block">
-        <Link class="to_register" href="/register/">ЗАРЕГИСТРИРОВАТЬСЯ</Link>
+        <Link class="to_register" href="/register/">{lang('auth.register')}</Link>
     </Block>
 
 </Page>
@@ -34,7 +34,7 @@
         Block,
         Input,
     } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {lang, api} from '@/js/api'
 
     export let f7router;
     let errors = '';
@@ -53,6 +53,7 @@
                 }else{
                     errors = '';
                     localStorage.setItem("token", response.accessToken)
+                    localStorage.setItem("refreshToken", response.refreshToken)
                     f7router.navigate('/user/', { context: { user: response.userProfile } });
                 }
             })
