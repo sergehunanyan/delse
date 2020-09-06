@@ -2,9 +2,7 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Способы оплаты" route={f7router}/>
-
-    <h3>Cards</h3>
+    <ProfileHeading heading="{lang('profile.pay_types')}" route={f7router}/>
 
     <Navigation/>
 
@@ -14,10 +12,8 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
-
-    import {
-        Page
-    } from 'framework7-svelte';
+    import {Page} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 </script>

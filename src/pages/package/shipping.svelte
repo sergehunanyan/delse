@@ -102,8 +102,8 @@
                         </div>
                     </div>
                     <div class="bottom">
-                        <p>{lang('packages.status')}: <span>Предложение принято</span></p>
-                        <Button href="/bid-requests/" round>Груз получен</Button>
+                        <p>{lang('packages.status')}: <span>{lang('packages.accepted')}</span></p>
+                        <Button href="/bid-requests/" round>{lang('packages.received')}</Button>
                     </div>
                 </div>
             </ListItem>

@@ -4,23 +4,23 @@
 
     <List simpleList class="user_settings">
         <ListItem>
-            <Link href="/payment-systems/">Способы оплаты</Link>
+            <Link href="/payment-systems/">{lang('profile.pay_types')}</Link>
         </ListItem>
         <ListItem>
-            <Link href="/settings/">Настройки</Link>
+            <Link href="/settings/">{lang('profile.settings')}</Link>
         </ListItem>
         <ListItem>
-            <Link href="/rating/">Рейтинг</Link>
+            <Link href="/rating/">{lang('profile.rating')}</Link>
         </ListItem>
         <ListItem>
-            <Link href="/invite/">Пригласить друга</Link>
+            <Link href="/invite/">{lang('profile.invite')}</Link>
         </ListItem>
-        <ListItem>О сервисе</ListItem>
+        <ListItem>{lang('profile.about')}</ListItem>
         <ListItem>
-            <Link href="/support/">Служба поддержки</Link>
+            <Link href="/support/">{lang('profile.support')}</Link>
         </ListItem>
         <ListItem>
-            <Link href="/socials/">Мы в соцсетях</Link>
+            <Link href="/socials/">{lang('profile.socials')}</Link>
         </ListItem>
     </List>
 
@@ -31,14 +31,8 @@
 <script>
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
-    import api from '@/js/api'
-
-    import {
-        Page,
-        List,
-        ListItem,
-        Link
-    } from 'framework7-svelte';
+    import {Page, List, ListItem, Link} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
     export let f7route;

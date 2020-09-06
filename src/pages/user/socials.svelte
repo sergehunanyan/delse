@@ -2,11 +2,11 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Настройки" route={f7router}/>
+    <ProfileHeading heading="{lang('profile.settings')}" route={f7router}/>
 
     <Block class="socials_block">
 
-        <p>Присоединяйтесь к нашему сообществу</p>
+        <p>{lang('profile.add_socials')}</p>
 
         <List simpleList class="socials_list">
             <ListItem>
@@ -41,14 +41,8 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
-
-    import {
-        Page,
-        Block,
-        ListItem,
-        List,
-        Link
-    } from 'framework7-svelte';
+    import {Page, Block, ListItem, List, Link} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 </script>

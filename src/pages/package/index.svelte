@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="bottom">
-                        <p>{lang('packages.status')}: <span>Груз доставлен</span></p>
+                        <p>{lang('packages.status')}: <span>{lang('packages.delivered')}</span></p>
                         <Button href="/bid-requests/" round>{lang('packages.confirm_delivery')}</Button>
                     </div>
                 </div>

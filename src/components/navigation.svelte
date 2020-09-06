@@ -19,10 +19,7 @@
 </Block>
 
 <script>
-    import {
-        Block,
-        Link,
-    } from 'framework7-svelte';
+    import {Block, Link} from 'framework7-svelte';
 
     let current = 'user';
 </script>

@@ -2,20 +2,20 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Изменение пароля" route={f7router}/>
+    <ProfileHeading heading="{lang('profile.change_password')}" route={f7router}/>
 
     <form class="reset_password_form" on:submit|preventDefault={changePassword}>
 
-        <Input type="password" placeholder="Текущий пароль" name="currentPassword"/>
+        <Input type="password" placeholder="{lang('profile.current_password')}" name="currentPassword"/>
 
-        <input type="password" placeholder="Введите новый пароль" name="newPassword" bind:value={password}/>
+        <input type="password" placeholder="{lang('profile.new_password')}" name="newPassword" bind:value={password}/>
 
-        <input type="password" placeholder="Повторите пароль" bind:value={confirm_password}/>
+        <input type="password" placeholder="{lang('profile.confirm_password')}" bind:value={confirm_password}/>
 
         <div class="validation_error">{errors}</div>
 
         <Block class="login_button_block">
-            <Button type="submit" class="login_button" round>Готово</Button>
+            <Button type="submit" class="login_button" round>{lang('profile.ready')}</Button>
         </Block>
     </form>
 
@@ -27,7 +27,7 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
-    import api from '@/js/api'
+    import {api, lang} from '@/js/api'
 
     import {
         Page,
@@ -49,7 +49,7 @@
 
     function changePassword(event) {
         if(password !== confirm_password){
-            errors = 'Password mismatch';
+            errors = lang('profile.mismatch');
             return;
         }
         const formData = new FormData(event.target);
@@ -65,7 +65,7 @@
                         errors = '';
                         f7router.navigate('/user/');
                     } else {
-                        errors = 'Wrong data';
+                        errors = lang('profile.wrong');
                     }
                 })
     }

@@ -48,17 +48,17 @@
 
             <select name="payment">
                 <option value="0">{lang('applications.payment_type')}:</option>
-                <option value="1">Наличными</option>
-                <option value="2">Карта</option>
+                <option value="1">{lang('applications.cash')}</option>
+                <option value="2">{lang('applications.card')}</option>
             </select>
 
             <div class="add_weight">
                 <div class="add_weight_block">
                     <label for="ride_weight">{lang('applications.weight')}:<Input type="text" id="ride_weight"/></label>
                     <select name="weight">
-                        <option value="0">г</option>
-                        <option value="1">кг</option>
-                        <option value="2">т</option>
+                        <option value="0">{lang('applications.g')}</option>
+                        <option value="1">{lang('applications.kg')}</option>
+                        <option value="2">{lang('applications.t')}</option>
                     </select>
                 </div>
 
@@ -89,8 +89,8 @@
                 </div>
 
                 <select name="size_type" class="size_type">
-                    <option value="0">см</option>
-                    <option value="1">м</option>
+                    <option value="0">{lang('applications.sm')}</option>
+                    <option value="1">{lang('applications.m')}</option>
                 </select>
             </div>
 

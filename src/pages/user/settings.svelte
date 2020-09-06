@@ -2,24 +2,24 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Настройки" route={f7router}/>
+    <ProfileHeading heading="{lang('profile.settings')}" route={f7router}/>
 
     <List simpleList class="user_settings_list">
         <ListItem>
-            <span>Разешить уведомления</span>
+            <span>{lang('profile.notification_status')}</span>
             <Toggle color="green"></Toggle>
         </ListItem>
         <ListItem>
-            <span>Выбрать язык</span>
+            <span>{lang('profile.select_language')}</span>
             <select name="language" id="language">
-                <option value="ru">Русский</option>
-                <option value="en">English</option>
+                <option value="ru">{lang('profile.russian')}</option>
+                <option value="en">{lang('profile.english')}</option>
             </select>
         </ListItem>
         <ListItem>
-            <Link href="/password/">Изменить пароль</Link>
+            <Link href="/password/">{lang('profile.change_password_link')}</Link>
         </ListItem>
-        <ListItem on:click={deleteAccount}>Удалить аккаунт</ListItem>
+        <ListItem on:click={deleteAccount}>{lang('profile.delete_account')}</ListItem>
     </List>
 
     <Navigation/>
@@ -30,15 +30,8 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
-
-    import {
-        Page,
-        List,
-        ListItem,
-        Toggle,
-        Link,
-    } from 'framework7-svelte';
-    import api from '@/js/api'
+    import {Page, List, ListItem, Toggle, Link} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 

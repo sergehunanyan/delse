@@ -2,12 +2,11 @@
 
     <UserInfo/>
 
-    <ProfileHeading heading="Служба поддержки" route={f7router}/>
+    <ProfileHeading heading="{lang('profile.support')}" route={f7router}/>
 
     <Block class="socials_block">
 
-        <p>Выберите мессенджер,
-            чтобы отправить сообщение</p>
+        <p>{lang('profile.select_support')}</p>
 
         <List simpleList class="socials_list">
             <ListItem>
@@ -32,14 +31,13 @@
             </ListItem>
         </List>
 
-        <p>или отправьте cообщение
-            по электронной почте</p>
+        <p>{lang('profile.support_another')}</p>
 
         <form class="invite_form">
-            <Input type="email" placeholder="Email"/>
+            <Input type="email" placeholder="{lang('profile.email')}"/>
 
             <div class="invite_button_block">
-                <Button href="/user/" class="invite_button" round>Отправить</Button>
+                <Button href="/user/" class="invite_button" round>{lang('profile.send')}</Button>
             </div>
         </form>
 
@@ -53,15 +51,8 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
-
-    import {
-        Page,
-        Block,
-        List,
-        ListItem,
-        Input,
-        Button,
-    } from 'framework7-svelte';
+    import {Page, Block, List, ListItem, Input, Button} from 'framework7-svelte';
+    import {api, lang} from '@/js/api'
 
     export let f7router;
 </script>

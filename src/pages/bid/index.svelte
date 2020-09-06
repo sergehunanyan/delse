@@ -47,7 +47,7 @@
                         <div class="info">
                             <p><span>{lang('applications.name')}: </span>{ bid.application.name }</p>
                             <p>
-                                <span>ТИП ГРУЗА: </span>
+                                <span>{lang('applications.cargo_type')} </span>
                                 {#if FreightTypes.find(x => x.id === bid.application.freightTypeId)}
                                     {(FreightTypes.find(x => x.id === bid.application.freightTypeId).name)}
                                 {/if}
