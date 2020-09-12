@@ -649,6 +649,18 @@ textarea{
     justify-content: center;
     margin-bottom: 40px;
 }
+.update_user_profile_form ul li input{
+    width: 100%;
+    line-height: 24px;
+    border-bottom: 1px solid #000000;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    height: auto !important;
+    -webkit-text-decoration: none solid rgb(255, 255, 255);
+    -moz-text-decoration: none solid rgb(255, 255, 255);
+    text-decoration: none solid rgb(255, 255, 255);
+    margin: 0 0 0 10px;
+}
 .update_user_profile_button{
     max-width: 218px;
     width: 100%;

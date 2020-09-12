@@ -1,25 +1,11 @@
 import axios from "axios";
 import ru from "@/js/json/ru.json";
 
+let languages = ru;
+
 const axiosAPI = axios.create({
     baseURL : "https://delse.net/"
 });
-
-const getDeepVal = (obj, path) => {
-    if (typeof obj === "undefined" || obj === null) return false;
-    path = path.split(new RegExp("[\\.\\[\\]\\\"\\']{1,2}", "g"));
-
-    for (let i = 0, l = path.length; i < l; i++) {
-        if (path[i] === "") continue;
-        obj = obj[path[i]];
-        if (typeof obj === "undefined" || obj === null) return false;
-    }
-    return obj;
-}
-
-const lang = (key) => {
-    return getDeepVal(ru, key) || key;
-}
 
 const apiRequest = (method, url, request) => {
     let headers;
@@ -68,13 +54,43 @@ const put = (url, request) => apiRequest("put", url, request);
 
 const patch = (url, request) =>  apiRequest("patch", url, request);
 
+const getDeepVal = (obj, path) => {
+    if (typeof obj === "undefined" || obj === null) return false;
+    path = path.split(new RegExp("[\\.\\[\\]\\\"\\']{1,2}", "g"));
+
+    for (let i = 0, l = path.length; i < l; i++) {
+        if (path[i] === "") continue;
+        obj = obj[path[i]];
+        if (typeof obj === "undefined" || obj === null) return false;
+    }
+    return obj;
+}
+
+const changeLanguage = () => {
+    get('users/api/Localizations/GetResources').then((response) => {
+        let currentLang = localStorage.getItem("lang");
+        if(currentLang !== null){
+            languages = JSON.parse(response[0].translations[parseInt(currentLang)].resourceJson)
+        }else{
+            languages = JSON.parse(response[0].translations[0].resourceJson)
+        }
+    });
+};
+
+changeLanguage()
+
+const lang = (key) => {
+    return getDeepVal(languages, key) || key;
+}
+
 let api = {
     get,
     del,
     post,
     put,
     patch,
-    lang
+    lang,
+    changeLanguage,
 };
 export default api;
 export {

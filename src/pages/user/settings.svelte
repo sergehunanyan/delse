@@ -11,9 +11,9 @@
         </ListItem>
         <ListItem>
             <span>{lang('profile.select_language')}</span>
-            <select name="language" id="language">
-                <option value="ru">{lang('profile.russian')}</option>
-                <option value="en">{lang('profile.english')}</option>
+            <select name="language" id="language" bind:value={curLang} on:change={changeLang}>
+                <option value="0">{lang('profile.russian')}</option>
+                <option value="1" selected={curLang}>{lang('profile.english')}</option>
             </select>
         </ListItem>
         <ListItem>
@@ -31,7 +31,7 @@
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
     import {Page, List, ListItem, Toggle, Link} from 'framework7-svelte';
-    import {api, lang} from '@/js/api'
+    import {api, lang, changeLanguage} from '@/js/api'
 
     export let f7router;
 
@@ -40,5 +40,12 @@
         api.del('users/api/mobile/Account/Delete');
         localStorage.removeItem("token");
         localStorage.removeItem("refreshToken");
+    }
+
+    let curLang = (localStorage.getItem("lang") === "1");
+
+    function changeLang() {
+        localStorage.setItem("lang", curLang);
+        api.changeLanguage()
     }
 </script>

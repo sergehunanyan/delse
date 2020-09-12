@@ -18,8 +18,8 @@
         </Block>
     </form>
 
-    <Block class="login_button_block">
-        <Button class="to_register" type="submit">{lang('auth.ready')}</Button>
+    <Block class="send_again">
+        <Button on:click={sendAgain}>{lang('auth.send_again')}</Button>
     </Block>
 
 </Page>
@@ -71,5 +71,9 @@
                         })
             }
         })
+    }
+
+    function sendAgain() {
+        api.post('users/api/mobile/Account/SendEmailPasswordRecovery', f7route.context.data.emailOrPhoneNumber)
     }
 </script>

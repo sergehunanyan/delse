@@ -11,36 +11,38 @@
         <div style="height: 100%" class="edit_profile_content">
             <div class="user_image"></div>
             <div class="user_more_info modal_open">
-                <List>
-                    <ListItem>
-                        <span>{lang('profile.ownership')}:</span>
-                        <p>ООО</p>
-                    </ListItem>
-                    <ListItem>
-                        <span>{lang('profile.organisation_name')}:</span>
-                        <p>АЙСЕК Систем</p>
-                    </ListItem>
-                    <ListItem>
-                        <span>{lang('profile.unp')}</span>
-                        <p>1234567890</p>
-                    </ListItem>
-                    <ListItem>
-                        <span>{lang('profile.country_city')}:</span>
-                        <p>1234567890</p>
-                    </ListItem>
-                    <ListItem>
-                        <span>{lang('profile.organisation_address')}</span>
-                        <p>Минск...</p>
-                    </ListItem>
-                    <ListItem>
-                        <span>{lang('profile.birthday')}</span>
-                        <p>03.03.1986</p>
-                    </ListItem>
-                </List>
+                <form action="" class="update_user_profile_form">
+                    <List>
+                        <ListItem>
+                            <span>{lang('profile.ownership')}:</span>
+                            <input type="text" value="" name="payerAccountNumber">
+                        </ListItem>
+                        <ListItem>
+                            <span>{lang('profile.organisation_name')}:</span>
+                            <input type="text" value="" name="middleNAme">
+                        </ListItem>
+                        <ListItem>
+                            <span>{lang('profile.unp')}</span>
+                            <input type="text" value="" name="typeOfOwnership">
+                        </ListItem>
+                        <ListItem>
+                            <span>{lang('profile.country_city')}:</span>
+                            <p>1234567890</p>
+                        </ListItem>
+                        <ListItem>
+                            <span>{lang('profile.organisation_address')}</span>
+                            <input type="text" value="" name="organizationAddress">
+                        </ListItem>
+                        <ListItem>
+                            <span>{lang('profile.birthday')}</span>
+                            <Input type="datepicker" value="" name="dateOfBirth" placeholder="dd.mm.yyyy" calendarParams={{ dateFormat: 'yyyy-mm-dd' }} />
+                        </ListItem>
+                    </List>
 
-                <div class="update_user_profile">
-                    <Button round class="update_user_profile_button">{lang('profile.save')}</Button>
-                </div>
+                    <div class="update_user_profile">
+                        <Button round class="update_user_profile_button">{lang('profile.save')}</Button>
+                    </div>
+                </form>
             </div>
         </div>
     </Page>
@@ -119,7 +121,7 @@
 </div>
 
 <script>
-    import {Page, Popup, Navbar, NavLeft, Block, Icon, Button, List, ListItem, Link} from 'framework7-svelte';
+    import {Page, Popup, Navbar, NavLeft, Block, Icon, Button, List, ListItem, Input, Link} from 'framework7-svelte';
     import {api, lang} from '@/js/api'
 
     let status = false;
