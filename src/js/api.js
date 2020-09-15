@@ -1,26 +1,25 @@
 import axios from "axios";
 import ru from "@/js/json/ru.json";
+import {user, translations} from '@/js/store';
 
-let languages = ru;
-
-const axiosAPI = axios.create({
-    baseURL : "https://delse.net/"
+const delseAPI = axios.create({
+    baseURL: "https://delse.net/"
 });
 
 const apiRequest = (method, url, request) => {
     let headers;
     let token = localStorage.getItem("token");
     let refreshToken = localStorage.getItem("refreshToken");
-    if(token !== null){
+    if (token !== null) {
         headers = {
-            "Authorization": "Bearer "+token,
+            "Authorization": "Bearer " + token,
             "refreshToken": refreshToken
         };
-    }else{
+    } else {
         headers = {}
     }
 
-    return axiosAPI({
+    return delseAPI({
         method,
         url,
         data: request,
@@ -28,7 +27,7 @@ const apiRequest = (method, url, request) => {
     }).then(res => {
         return res.data;
     }).catch(err => {
-        if(err.response === 403){
+        if (err.response === 403) {
             get('users/api/Token/Refresh')
                 .then((response) => {
                     if (response.status === 200) {
@@ -38,21 +37,46 @@ const apiRequest = (method, url, request) => {
                         document.app.views.main.router.navigate('/login/');
                     }
                 })
-        }else{
+        } else {
             return err.response;
         }
     });
 };
 
-const get = (url, request) => apiRequest("get",url,request);
+const get = (url, request) => apiRequest("get", url, request);
 
-const del = (url, request) =>  apiRequest("delete", url, request);
+const del = (url, request) => apiRequest("delete", url, request);
 
 const post = (url, request) => apiRequest("post", url, request);
 
 const put = (url, request) => apiRequest("put", url, request);
 
-const patch = (url, request) =>  apiRequest("patch", url, request);
+const patch = (url, request) => apiRequest("patch", url, request);
+
+let languages;
+translations.update(value => ru);
+translations.subscribe(value => {
+    languages = value;
+});
+
+const changeLanguage = async () => {
+    await get('users/api/Localizations/GetResources').then((response) => {
+        let currentLang = localStorage.getItem("lang");
+        if (currentLang !== null) {
+            translations.update(value => JSON.parse(response[0].translations[parseInt(currentLang) - 1].resourceJson));
+            translations.subscribe(value => {
+                languages = value;
+            });
+        } else {
+            translations.update(value => JSON.parse(response[0].translations[0].resourceJson));
+            translations.subscribe(value => {
+                languages = value;
+            });
+        }
+    });
+};
+
+changeLanguage()
 
 const getDeepVal = (obj, path) => {
     if (typeof obj === "undefined" || obj === null) return false;
@@ -65,19 +89,6 @@ const getDeepVal = (obj, path) => {
     }
     return obj;
 }
-
-const changeLanguage = () => {
-    get('users/api/Localizations/GetResources').then((response) => {
-        let currentLang = localStorage.getItem("lang");
-        if(currentLang !== null){
-            languages = JSON.parse(response[0].translations[parseInt(currentLang)].resourceJson)
-        }else{
-            languages = JSON.parse(response[0].translations[0].resourceJson)
-        }
-    });
-};
-
-changeLanguage()
 
 const lang = (key) => {
     return getDeepVal(languages, key) || key;
@@ -95,5 +106,7 @@ let api = {
 export default api;
 export {
     lang,
-    api
+    api,
+    user,
+    translations
 };

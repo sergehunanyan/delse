@@ -17,7 +17,9 @@
     <Block class="m-0">
         <form class="add_form" on:submit|preventDefault={addRide}>
             <div class="ride_from">
-                <Input type="text" placeholder="{lang('transportation.from')}:" name="ride_from" inputId="ride_from" on:change={() => asd}/>
+                <Input type="text" placeholder="{lang('transportation.from')}:" name="placeFrom" inputId="ride_from"/>
+                <input type="hidden" name="longitudeFrom" value="" id="ride_long_from"/>
+                <input type="hidden" name="latitudeFrom" value="" id="ride_lat_from"/>
                 <Button fill popupOpen=".ride_from_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -37,7 +39,9 @@
             </Popup>
 
             <div class="ride_from">
-                <Input type="text" placeholder="{lang('transportation.to')}:" inputId="ride_to" name="ride_to"/>
+                <Input type="text" placeholder="{lang('transportation.to')}:" name="placeTo" inputId="ride_to"/>
+                <input type="hidden" name="longitudeTo" value="" id="ride_long_to"/>
+                <input type="hidden" name="latitudeTo" value="" id="ride_lat_to"/>
                 <Button fill popupOpen=".ride_to_popup" class="open_map">
                     <img src="./static/images/location.svg" alt="Location">
                 </Button>
@@ -59,41 +63,36 @@
             <div class="ride_dates">
                 <div>
                     <p>{lang('transportation.can_take')}:</p>
-                    <Input type="datepicker" placeholder="dd.mm - dd.mm.yyyy" readonly calendarParams={{ dateFormat: 'yyyy-mm-dd', rangePicker: true }} />
+                    <Input type="datepicker" placeholder="dd.mm - dd.mm.yyyy" name="take" readonly calendarParams={{ dateFormat: 'yyyy-mm-dd', rangePicker: true }} />
                 </div>
                 <div>
                     <p>{lang('transportation.can_deliver')}:</p>
-                    <Input type="text" placeholder="dd.mm - dd.mm.yyyy"/>
+                    <Input type="datepicker" placeholder="dd.mm - dd.mm.yyyy" name="delivery" readonly calendarParams={{ dateFormat: 'yyyy-mm-dd', rangePicker: true }}/>
                 </div>
             </div>
 
-            <select name="type">
+            <select name="freightTypeId">
                 <option value="0">{lang('transportation.cargo_type')}:</option>
-                <option value="1">Бумаги/документы</option>
-                <option value="2">Мелкогабаритные</option>
-                <option value="3">Среднегабаритные</option>
-                <option value="4">Крупногабаритные</option>
-                <option value="5">Наливные</option>
-                <option value="6">Сыпучие</option>
-                <option value="7">Низкотемпературные</option>
-                <option value="8">Мусор и отходы</option>
+                {#if FreightType != null}
+                    {#each FreightType as freight}
+                        <option value={freight.id}>{freight.name}</option>
+                    {/each}
+                {/if}
             </select>
 
-            <select name="transport">
+            <select name="serviceTypeId">
                 <option value="0">{lang('transportation.transport_type')}:</option>
-                <option value="1">Вело/Мото</option>
-                <option value="2">Поезд</option>
-                <option value="3">Легковой автомобиль</option>
-                <option value="4">Минивэн</option>
-                <option value="5">Микроавтобус</option>
-                <option value="6">Грузовой автомобиль</option>
-                <option value="7">Самолёт</option>
+                {#if ServiceType != null}
+                    {#each ServiceType as service}
+                        <option value={service.id}>{service.name}</option>
+                    {/each}
+                {/if}
             </select>
 
             <div class="add_weight">
                 <div class="add_weight_block">
-                    <label for="ride_weight">{lang('transportation.weight')}:<Input type="text" id="ride_weight"/></label>
-                    <select name="weight">
+                    <label for="ride_weight">{lang('transportation.weight')}:<Input type="text" id="ride_weight" name="weight"/></label>
+                    <select name="weightUnit">
                         <option value="0">{lang('transportation.g')}</option>
                         <option value="1">{lang('transportation.kg')}</option>
                         <option value="2">{lang('transportation.t')}</option>
@@ -101,7 +100,7 @@
                 </div>
 
                 <div class="add_weight_block">
-                    <label for="ride_size">{lang('transportation.volume')}:<Input type="text" id="ride_size"/></label>
+                    <label for="ride_size">{lang('transportation.volume')}:<Input type="text" id="ride_size" name="volume"/></label>
                     <p>{lang('transportation.m3')}</p>
                 </div>
             </div>
@@ -111,22 +110,22 @@
 
                 <div class="add_sizes_middle">
                     <div class="add_sizes_middle_block">
-                        <Input type="text"/>
+                        <Input type="text" name="length"/>
                         <p>{lang('transportation.length')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
-                        <Input type="text"/>
+                        <Input type="text" name="width"/>
                         <p>{lang('transportation.width')}</p>
                     </div>
                     <span>/</span>
                     <div class="add_sizes_middle_block">
-                        <Input type="text"/>
+                        <Input type="text" name="height"/>
                         <p>{lang('transportation.height')}</p>
                     </div>
                 </div>
 
-                <select name="size_type" class="size_type">
+                <select name="sizeUnit" class="size_type">
                     <option value="0">{lang('transportation.sm')}</option>
                     <option value="1">{lang('transportation.m')}</option>
                 </select>
@@ -146,20 +145,81 @@
     import Navigation from '@/components/navigation.svelte'
     import {App, Page, Link, Block, Button, Icon, List, ListItem, Toolbar, Input, Popup, Navbar, NavRight} from 'framework7-svelte';
     import newMap from '@/js/map'
-    import {api, lang} from '@/js/api'
+    import {api, lang, user} from '@/js/api'
 
-    newMap('ride_from', 'ride_from_map');
-    newMap('ride_to', 'ride_to_map');
+    newMap('ride_from', 'ride_from_map', 'ride_long_from', 'ride_lat_from');
+    newMap('ride_to', 'ride_to_map', 'ride_long_to', 'ride_lat_to');
 
     export let f7router;
     let popupOpened = false;
+    let userInfo;
+    let FreightType;
+    let ServiceType;
+
+    user.subscribe(value => {
+        userInfo = value;
+    });
+
+    api.get('types/api/FreightType/'+userInfo.defaultLanguage).then((response) => {
+        FreightType = response
+    });
+
+    api.get('types/api/ServiceType/'+userInfo.defaultLanguage).then((response) => {
+        ServiceType = response
+    });
 
     function addRide(event) {
         const formData = new FormData(event.target);
-        const formRide = {}
+        const formRide = {};
         for (const [k, v] of formData.entries()) {
             formRide[k] = v
         }
-        console.log(formRide)
+        const take_arr = formRide.take.split(" - ");
+        const delivery_arr = formRide.delivery.split(" - ");
+
+        let newRide = {
+            transportation: {
+                phone: userInfo.phoneNumber,
+                name: userInfo.fullName,
+                startDatePickup: take_arr[0],
+                endDatePickup: take_arr[1],
+                startDateDelivery: delivery_arr[0],
+                endDateDelivery: delivery_arr[1],
+                level: parseInt(userInfo.levelAsTransporter),
+                rating: parseInt(userInfo.transporterRating),
+                freight: {
+                    weight: parseInt(formRide.weight),
+                    width: parseInt(formRide.width),
+                    height: parseInt(formRide.height),
+                    volume: parseInt(formRide.volume),
+                    length: parseInt(formRide.length),
+                    sizeUnit: parseInt(formRide.sizeUnit),
+                    weightUnit: parseInt(formRide.weightUnit)
+                },
+                freightTypeId: parseInt(formRide.freightTypeId),
+                serviceTypeId: parseInt(formRide.serviceTypeId)
+            },
+            place: {
+                placeFrom: formRide.placeFrom,
+                placeTo: formRide.placeTo,
+                longitudeFrom: parseInt(formRide.longitudeFrom),
+                latitudeFrom: parseInt(formRide.latitudeFrom),
+                longitudeTo: parseInt(formRide.longitudeTo),
+                latitudeTo: parseInt(formRide.latitudeTo)
+            },
+            payment: {
+                price: 0,
+                paymentType: 0,
+                currency: 1,
+                cardId: 0
+            },
+            additionalInfo: ""
+        };
+
+        api.post('transportations/api/Transportation', newRide).then((response) => {
+            if(response.status !== 400){
+                f7router.navigate('/ride/');
+            }
+        });
     }
 </script>

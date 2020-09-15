@@ -32,10 +32,11 @@
     import Navigation from '@/components/navigation.svelte'
     import UserInfo from '@/components/UserInfo.svelte'
     import {Page, List, ListItem, Link} from 'framework7-svelte';
-    import {api, lang} from '@/js/api'
+    import {api, lang, user} from '@/js/api'
 
     export let f7router;
-    export let f7route;
+
+    let user_info;
 
     api.get('users/api/mobile/Account/GetAccountInfo')
             .then((response) => {
@@ -49,6 +50,12 @@
                                     f7router.navigate('/login/');
                                 }
                             })
+                }else{
+                    user.update(value => response);
+                    user.subscribe(value => {
+                        user_info = value;
+                    });
+
                 }
             })
 </script>

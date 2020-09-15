@@ -8,7 +8,7 @@
         <h5><u>{lang('profile.customer_rating')}:</u><span>{info.ordererRating}</span><Icon f7="star_fill" size="16px" color="black" /></h5>
         <p>{lang('profile.parcels_send')}: <span>{info.publishedApplicationsCount}</span></p>
         <div class="watch_ratings">
-            <p>{lang('profile.rates_count')}: <span>15</span></p>
+            <p>{lang('profile.rates_count')}: <span>{info.totalAssessmentsCountAsCustomer}</span></p>
             <Link>{lang('profile.watch_ratings')}</Link>
         </div>
         <p>{lang('profile.status')}: <span>{info.ordererLevelName}</span></p>
@@ -18,7 +18,7 @@
         <h5><u>{lang('profile.transporter_rating')}:</u><span>{info.transporterRating}</span><Icon f7="star_fill" size="16px" color="black" /></h5>
         <p>{lang('profile.parcels_delivered')}: <span>{info.completedOrdersCount}</span></p>
         <div class="watch_ratings">
-            <p>{lang('profile.rates_count')}: <span>7</span></p>
+            <p>{lang('profile.rates_count')}: <span>{info.totalAssessmentsCountAsTransporter}</span></p>
             <Link>{lang('profile.watch_ratings')}</Link>
         </div>
         <p>{lang('profile.status')}: <span>{info.transporterLevelName}</span></p>

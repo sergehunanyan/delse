@@ -1,4 +1,4 @@
-export default function newMap(input_id, map_id) {
+export default function newMap(input_id, map_id, long_id, lat_id) {
     ymaps.ready(init);
 
     function init() {
@@ -41,9 +41,8 @@ export default function newMap(input_id, map_id) {
                     getAddress(myPlacemark.geometry.getCoordinates());
                 });
             }
-            // console.log(coords)
-            // console.log(coords[0].toPrecision(6))
-            // console.log(coords[1].toPrecision(6))
+            document.getElementById(long_id).value = coords[0].toPrecision(6);
+            document.getElementById(lat_id).value = coords[1].toPrecision(6);
             getAddress(coords);
         });
         function createPlacemark(coords) {

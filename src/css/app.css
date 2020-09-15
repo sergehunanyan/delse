@@ -453,10 +453,17 @@ textarea{
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-image: url('../static/images/user.png');
+    background-image: url('../static/images/defaultAvatar.png');
     background-size: cover;
     background-position: center;
     margin: 0 auto;
+    position: relative;
+}
+.user_image i{
+    position: absolute;
+    left: 65px;
+    top: 60px;
+    color: #ffba2b !important;
 }
 .edit_profile{
     position: absolute;
@@ -660,6 +667,21 @@ textarea{
     -moz-text-decoration: none solid rgb(255, 255, 255);
     text-decoration: none solid rgb(255, 255, 255);
     margin: 0 0 0 10px;
+}
+.update_user_profile_form ul li select{
+    width: 100%;
+    line-height: 24px;
+    border-bottom: 1px solid #000000;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    height: auto !important;
+    -webkit-text-decoration: none solid rgb(255, 255, 255);
+    -moz-text-decoration: none solid rgb(255, 255, 255);
+    text-decoration: none solid rgb(255, 255, 255);
+    margin: 0 0 0 10px;
+}
+.update_user_profile_form ul li select option{
+    color: #000;
 }
 .update_user_profile_button{
     max-width: 218px;

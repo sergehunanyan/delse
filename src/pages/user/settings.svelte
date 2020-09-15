@@ -7,13 +7,13 @@
     <List simpleList class="user_settings_list">
         <ListItem>
             <span>{lang('profile.notification_status')}</span>
-            <Toggle color="green"></Toggle>
+            <Toggle color="green" bind:checked={userInfo.enableNotifications} on:change={toggleNotifications}></Toggle>
         </ListItem>
         <ListItem>
             <span>{lang('profile.select_language')}</span>
             <select name="language" id="language" bind:value={curLang} on:change={changeLang}>
-                <option value="0">{lang('profile.russian')}</option>
-                <option value="1" selected={curLang}>{lang('profile.english')}</option>
+                <option value="1">{lang('profile.russian')}</option>
+                <option value="2" selected={curLang}>{lang('profile.english')}</option>
             </select>
         </ListItem>
         <ListItem>
@@ -31,7 +31,12 @@
     import UserInfo from '@/components/UserInfo.svelte'
     import ProfileHeading from '@/components/profileHeading.svelte'
     import {Page, List, ListItem, Toggle, Link} from 'framework7-svelte';
-    import {api, lang, changeLanguage} from '@/js/api'
+    import {api, lang, changeLanguage, user} from '@/js/api'
+
+    let userInfo;
+    user.subscribe(value => {
+        userInfo = value;
+    });
 
     export let f7router;
 
@@ -42,10 +47,16 @@
         localStorage.removeItem("refreshToken");
     }
 
-    let curLang = (localStorage.getItem("lang") === "1");
+    let curLang = (localStorage.getItem("lang") === "2");
 
-    function changeLang() {
+    function toggleNotifications(){
+        api.put('users/api/mobile/Account/Edit', {enableNotifications: !userInfo.enableNotifications})
+    }
+
+    async function changeLang() {
         localStorage.setItem("lang", curLang);
-        api.changeLanguage()
+        await api.put('users/api/mobile/Account/Edit', {defaultLanguage: parseInt(curLang)})
+        await api.changeLanguage();
+
     }
 </script>
